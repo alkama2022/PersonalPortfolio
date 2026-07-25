@@ -1,0 +1,102 @@
+import { Link } from "@tanstack/react-router";
+import { projects, type Project } from "@/lib/data";
+import { ScrollReveal } from "@/components/scroll-reveal";
+import { SectionHeader } from "@/components/section-header";
+import { Button } from "@/components/ui/button";
+import { Badge } from "@/components/ui/badge";
+import { Card, CardContent, CardFooter, CardHeader } from "@/components/ui/card";
+import { ArrowUpRight, ExternalLink, Github } from "lucide-react";
+
+export function ProjectCard({ project }: { project: Project }) {
+  return (
+    <Card className="group flex h-full flex-col overflow-hidden border-border bg-surface transition-all hover:border-primary/30 hover:shadow-lg">
+      <div className="relative aspect-video overflow-hidden bg-muted">
+        <img
+          src={project.image}
+          alt={`${project.title} screenshot`}
+          className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+          loading="lazy"
+          width={600}
+          height={340}
+        />
+        <div className="absolute inset-0 bg-gradient-to-t from-background/80 to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
+        <div className="absolute bottom-0 left-0 right-0 flex translate-y-full gap-2 p-4 transition-transform duration-300 group-hover:translate-y-0">
+          <Button size="sm" variant="secondary" className="flex-1" asChild>
+            <a href={project.live} target="_blank" rel="noopener noreferrer">
+              <ExternalLink className="mr-2 h-4 w-4" />
+              Live Demo
+            </a>
+          </Button>
+          <Button size="sm" variant="secondary" className="flex-1" asChild>
+            <a href={project.github} target="_blank" rel="noopener noreferrer">
+              <Github className="mr-2 h-4 w-4" />
+              GitHub
+            </a>
+          </Button>
+        </div>
+      </div>
+      <CardHeader className="pb-2">
+        <div className="flex items-start justify-between gap-2">
+          <h3 className="font-heading text-lg font-semibold text-foreground line-clamp-1">
+            {project.title}
+          </h3>
+          <Badge variant="outline" className="shrink-0 text-xs">
+            {project.category}
+          </Badge>
+        </div>
+      </CardHeader>
+      <CardContent className="flex-1 space-y-3">
+        <p className="text-sm text-muted-foreground line-clamp-3">{project.description}</p>
+        <div className="flex flex-wrap gap-1.5">
+          {project.technologies.slice(0, 4).map((tech) => (
+            <Badge key={tech} variant="secondary" className="text-xs">
+              {tech}
+            </Badge>
+          ))}
+          {project.technologies.length > 4 && (
+            <Badge variant="secondary" className="text-xs">
+              +{project.technologies.length - 4}
+            </Badge>
+          )}
+        </div>
+      </CardContent>
+      <CardFooter className="pt-0">
+        <Button variant="ghost" size="sm" className="px-0 text-primary hover:text-primary" asChild>
+          <Link to="/projects">
+            View Details
+            <ArrowUpRight className="ml-1 h-4 w-4" />
+          </Link>
+        </Button>
+      </CardFooter>
+    </Card>
+  );
+}
+
+export function ProjectsSection() {
+  const featuredProjects = projects.filter((p) => p.featured);
+
+  return (
+    <section id="projects" className="bg-surface py-20 md:py-28">
+      <div className="container-tight">
+        <SectionHeader
+          title="Featured Projects"
+          subtitle="A selection of my recent work across backend systems, APIs, and full-stack applications."
+        />
+
+        <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+          {featuredProjects.map((project, index) => (
+            <ScrollReveal key={project.id} delay={index * 0.1}>
+              <ProjectCard project={project} />
+            </ScrollReveal>
+          ))}
+        </div>
+
+        <ScrollReveal className="mt-12 text-center" delay={0.3}>
+          <Button size="lg" asChild>
+            <Link to="/projects">View All Projects</Link>
+          </Button>
+        </ScrollReveal>
+      </div>
+    </section>
+  );
+}
