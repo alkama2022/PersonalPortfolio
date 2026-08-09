@@ -121,7 +121,7 @@ export function ProjectsSection() {
 
         <div className="mx-auto grid max-w-4xl gap-6 md:grid-cols-2">
           {featuredProjects.map((project, index) => (
-            <ScrollReveal key={project.id} delay={index * 0.1}>
+            <ScrollReveal key={project.id} delay={index * 0.1} className="min-w-0">
               <ProjectCard project={project} />
             </ScrollReveal>
           ))}
