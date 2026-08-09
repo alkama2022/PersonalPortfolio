@@ -14,8 +14,8 @@ export function ProjectCard({ project }: { project: Project }) {
   const imageTarget = hasLive ? project.live : project.github;
 
   return (
-    <Card className="group flex h-full flex-col overflow-hidden border-border bg-surface transition-all hover:border-primary/30 hover:shadow-lg">
-      <div className="relative aspect-video overflow-hidden bg-muted">
+    <Card className="group flex h-full min-w-0 flex-col overflow-hidden border-border bg-surface transition-all hover:border-primary/30 hover:shadow-lg">
+      <div className="relative aspect-video w-full overflow-hidden bg-muted">
         {imageHref ? (
           <a
             href={imageTarget}
@@ -31,7 +31,7 @@ export function ProjectCard({ project }: { project: Project }) {
             <img
               src={project.image}
               alt={`${project.title} screenshot`}
-              className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+              className="h-full w-full min-w-0 object-cover transition-transform duration-500 group-hover:scale-105"
               loading="lazy"
               width={600}
               height={340}
@@ -41,7 +41,7 @@ export function ProjectCard({ project }: { project: Project }) {
           <img
             src={project.image}
             alt={`${project.title} screenshot`}
-            className="h-full w-full object-cover"
+            className="h-full w-full min-w-0 object-cover"
             loading="lazy"
             width={600}
             height={340}

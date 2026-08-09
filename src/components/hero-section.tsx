@@ -91,7 +91,7 @@ export function HeroSection() {
           initial={{ opacity: 0, scale: 0.95 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.6, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
-          className="relative flex justify-center lg:justify-end"
+          className="relative flex min-w-0 justify-center lg:justify-end"
         >
           <div className="relative">
             <div className="absolute -inset-4 rounded-2xl bg-gradient-to-br from-primary/20 to-ember/20 blur-2xl" />
@@ -99,7 +99,7 @@ export function HeroSection() {
               <img
                 src="/images/profile.jpg"
                 alt={`${personalInfo.name} professional portrait`}
-                className="h-full w-full object-cover"
+                className="h-full w-full min-w-0 object-cover"
                 loading="eager"
                 width={384}
                 height={384}
