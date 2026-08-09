@@ -1,6 +1,6 @@
 import { Link } from "@tanstack/react-router";
 import { personalInfo, quickLinks, socialLinks } from "@/lib/data";
-import { Github, Linkedin, Mail, MapPin, Phone } from "lucide-react";
+import { Github, Linkedin, Mail, MapPin, MessageCircle, Phone } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useState, type FormEvent } from "react";
 
@@ -16,7 +16,9 @@ export function Footer() {
   const handleSubscribe = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     const subject = encodeURIComponent("Newsletter subscription");
-    const body = encodeURIComponent(`Please add this email to the newsletter list:\n\n${newsletterEmail}`);
+    const body = encodeURIComponent(
+      `Please add this email to the newsletter list:\n\n${newsletterEmail}`,
+    );
     window.location.href = `mailto:${personalInfo.email}?subject=${subject}&body=${body}`;
   };
 
@@ -89,6 +91,17 @@ export function Footer() {
                 <Phone className="h-4 w-4 shrink-0" />
                 <a href={`tel:${personalInfo.phone}`} className="hover:text-primary">
                   {personalInfo.phone}
+                </a>
+              </li>
+              <li className="flex items-center gap-2 text-sm text-muted-foreground">
+                <MessageCircle className="h-4 w-4 shrink-0" />
+                <a
+                  href={`https://wa.me/${personalInfo.whatsapp.replace(/[^\d]/g, "")}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-primary"
+                >
+                  {personalInfo.whatsapp}
                 </a>
               </li>
               <li className="flex items-start gap-2 text-sm text-muted-foreground">

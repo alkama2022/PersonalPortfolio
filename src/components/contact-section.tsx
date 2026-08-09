@@ -10,7 +10,7 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
 import { Card, CardContent } from "@/components/ui/card";
-import { Github, Linkedin, Mail, MapPin, Phone, Send } from "lucide-react";
+import { Github, Linkedin, Mail, MapPin, MessageCircle, Phone, Send } from "lucide-react";
 import { toast } from "sonner";
 import { useServerFn } from "@tanstack/react-start";
 import { sendContactMessage } from "@/lib/contact.functions";
@@ -78,9 +78,7 @@ export function ContactSection() {
 
   const openMailClient = (data: ContactForm) => {
     const subject = encodeURIComponent(data.subject);
-    const body = encodeURIComponent(
-      `Name: ${data.name}\nEmail: ${data.email}\n\n${data.message}`,
-    );
+    const body = encodeURIComponent(`Name: ${data.name}\nEmail: ${data.email}\n\n${data.message}`);
     window.location.href = `mailto:${personalInfo.email}?subject=${subject}&body=${body}`;
   };
 
@@ -110,6 +108,15 @@ export function ContactSection() {
                   >
                     <Phone className="h-5 w-5 text-primary" />
                     <span>{personalInfo.phone}</span>
+                  </a>
+                  <a
+                    href={`https://wa.me/${personalInfo.whatsapp.replace(/[^\d]/g, "")}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center gap-3 text-muted-foreground transition-colors hover:text-primary"
+                  >
+                    <MessageCircle className="h-5 w-5 text-primary" />
+                    <span>{personalInfo.whatsapp}</span>
                   </a>
                   <div className="flex items-center gap-3 text-muted-foreground">
                     <MapPin className="h-5 w-5 text-primary" />

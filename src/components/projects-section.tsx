@@ -22,9 +22,7 @@ export function ProjectCard({ project }: { project: Project }) {
             target="_blank"
             rel="noopener noreferrer"
             aria-label={
-              hasLive
-                ? `Open ${project.title} live demo`
-                : `Open ${project.title} source on GitHub`
+              hasLive ? `Open ${project.title} live demo` : `Open ${project.title} source on GitHub`
             }
             className="block h-full w-full"
           >
