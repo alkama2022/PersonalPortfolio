@@ -2,8 +2,13 @@ import { createFileRoute } from "@tanstack/react-router";
 import type {} from "@tanstack/react-start";
 import { blogPosts } from "@/lib/data";
 
-// TODO: replace with your project URL once a project name or custom domain is set.
-const BASE_URL = "";
+// Site URL used for absolute sitemap URLs. Override via SITE_URL env var
+// (Vercel sets VERCEL_PROJECT_PRODUCTION_URL for the deployment domain).
+const BASE_URL =
+  process.env.SITE_URL ??
+  (process.env.VERCEL_PROJECT_PRODUCTION_URL
+    ? `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}`
+    : "https://alkamaumar.dev");
 
 interface SitemapEntry {
   path: string;
