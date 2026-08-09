@@ -103,7 +103,7 @@ export function ContactSection() {
                     <span>{personalInfo.email}</span>
                   </a>
                   <a
-                    href={`tel:${personalInfo.phone}`}
+                    href={`tel:${personalInfo.phone.replace(/[^\d+]/g, "")}`}
                     className="flex items-center gap-3 text-muted-foreground transition-colors hover:text-primary"
                   >
                     <Phone className="h-5 w-5 text-primary" />
