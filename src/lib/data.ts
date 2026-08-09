@@ -117,101 +117,6 @@ export interface Project {
 
 export const projects: Project[] = [
   {
-    id: "student-grade-management",
-    title: "Student Grade Management System",
-    description:
-      "A comprehensive Django-based platform for managing student records, courses, and grades. It streamlines academic administration with role-based access, automated grade calculations, and report generation.",
-    technologies: ["Python", "Django", "PostgreSQL", "Bootstrap", "JavaScript"],
-    features: [
-      "Student and course management",
-      "Grade entry and calculation",
-      "Report generation and export",
-      "Role-based authentication",
-      "Admin dashboard",
-    ],
-    image: "/images/project-grade.jpg",
-    github: "https://github.com/alkama2022/university-system",
-    live: "#",
-    category: "Education",
-    featured: true,
-  },
-  {
-    id: "tyrehub-automobile",
-    title: "TyreHub Automobile Tyre Management System",
-    description:
-      "A full-featured e-commerce and inventory management system for automobile tyre shops. It includes product catalog, shopping cart, order management, and an admin dashboard for inventory control.",
-    technologies: ["Django", "Django REST Framework", "PostgreSQL", "React", "Tailwind CSS"],
-    features: [
-      "Inventory management",
-      "Product catalog with search",
-      "Shopping cart and checkout",
-      "Order tracking",
-      "Authentication and admin dashboard",
-    ],
-    image: "/images/project-tyrehub.jpg",
-    github: "https://github.com/alkama2022/TyreHub",
-    live: "https://alkama-sage.vercel.app/",
-    category: "E-Commerce",
-    featured: true,
-  },
-  {
-    id: "ecommerce-api",
-    title: "E-Commerce API",
-    description:
-      "A production-ready REST API for e-commerce applications built with Django REST Framework. It supports authentication, shopping cart, product management, and order processing backed by PostgreSQL.",
-    technologies: ["Django REST Framework", "JWT", "PostgreSQL", "Docker", "Postman"],
-    features: [
-      "User authentication with JWT",
-      "Product catalog and categories",
-      "Shopping cart management",
-      "Order and payment workflows",
-      "Comprehensive API documentation",
-    ],
-    image: "/images/project-api.jpg",
-    github: "https://github.com/alkama2022/Django-Backend-E-Commerce-Application",
-    live: "#",
-    category: "API",
-    featured: true,
-  },
-  {
-    id: "portfolio-website",
-    title: "Personal Portfolio Website",
-    description:
-      "A modern, responsive, and fast portfolio website built with React, TypeScript, and Tailwind CSS. Features dark/light mode, smooth animations, project filtering, and contact form integration.",
-    technologies: ["React", "TypeScript", "Tailwind CSS", "Vite", "Framer Motion"],
-    features: [
-      "Dark and light mode",
-      "Responsive design",
-      "Smooth scroll animations",
-      "Project filtering and search",
-      "Contact form with validation",
-    ],
-    image: "/images/project-portfolio.jpg",
-    github: "https://github.com/alkama2022/PersonalPortfolio",
-    live: "https://personal-portfolio-mevs-me.vercel.app",
-    category: "Web",
-    featured: false,
-  },
-  {
-    id: "task-management-api",
-    title: "Task Management API",
-    description:
-      "A RESTful API for managing tasks and projects with role-based permissions, due date tracking, and team collaboration features.",
-    technologies: ["Django REST Framework", "JWT", "PostgreSQL", "Redis"],
-    features: [
-      "Task CRUD operations",
-      "Project and team management",
-      "Due date reminders",
-      "Role-based access control",
-      "Activity logging",
-    ],
-    image: "/images/project-task.jpg",
-    github: "",
-    live: "",
-    category: "API",
-    featured: false,
-  },
-  {
     id: "vetlink",
     title: "VetLink",
     description:
@@ -227,6 +132,25 @@ export const projects: Project[] = [
     github: "https://github.com/alkama2022/vetlink",
     live: "https://alkama2022-vetlinkfrontendkano.vercel.app/",
     category: "Web",
+    featured: true,
+  },
+  {
+    id: "tyrehub-automobile",
+    title: "TyreHub",
+    description:
+      "A full-featured e-commerce and inventory management system for automobile tyre shops. It includes product catalog, shopping cart, order management, and an admin dashboard for inventory control.",
+    technologies: ["Django", "Django REST Framework", "PostgreSQL", "React", "Tailwind CSS"],
+    features: [
+      "Inventory management",
+      "Product catalog with search",
+      "Shopping cart and checkout",
+      "Order tracking",
+      "Authentication and admin dashboard",
+    ],
+    image: "/images/project-tyrehub.jpg",
+    github: "https://github.com/alkama2022/TyreHub",
+    live: "https://alkama-sage.vercel.app/",
+    category: "E-Commerce",
     featured: true,
   },
 ];

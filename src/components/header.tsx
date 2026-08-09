@@ -47,7 +47,7 @@ export function Header() {
 
         <div className="flex items-center gap-2">
           <ThemeToggle variant="ghost" />
-          <Button variant="outline" size="sm" className="hidden md:inline-flex" asChild>
+          <Button variant="outline" size="sm" className="hidden xl:inline-flex" asChild>
             <a href={personalInfo.resumeUrl} download>
               Download CV
             </a>
