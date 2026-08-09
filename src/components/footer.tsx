@@ -1,16 +1,24 @@
 import { Link } from "@tanstack/react-router";
 import { personalInfo, quickLinks, socialLinks } from "@/lib/data";
-import { Github, Linkedin, Mail, MapPin, Phone, Twitter } from "lucide-react";
+import { Github, Linkedin, Mail, MapPin, Phone } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { useState, type FormEvent } from "react";
 
 const iconMap: Record<string, React.ComponentType<{ className?: string }>> = {
   Github,
   Linkedin,
-  Twitter,
 };
 
 export function Footer() {
   const currentYear = new Date().getFullYear();
+  const [newsletterEmail, setNewsletterEmail] = useState("");
+
+  const handleSubscribe = (e: FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    const subject = encodeURIComponent("Newsletter subscription");
+    const body = encodeURIComponent(`Please add this email to the newsletter list:\n\n${newsletterEmail}`);
+    window.location.href = `mailto:${personalInfo.email}?subject=${subject}&body=${body}`;
+  };
 
   return (
     <footer className="border-t border-border bg-surface text-surface-foreground">
@@ -97,9 +105,12 @@ export function Footer() {
             <p className="mb-3 text-sm text-muted-foreground">
               Subscribe for updates on new projects and blog posts.
             </p>
-            <form className="flex gap-2" onSubmit={(e) => e.preventDefault()}>
+            <form className="flex gap-2" onSubmit={handleSubscribe}>
               <input
                 type="email"
+                required
+                value={newsletterEmail}
+                onChange={(e) => setNewsletterEmail(e.target.value)}
                 placeholder="your@email.com"
                 className="flex-1 rounded-md border border-border bg-background px-3 py-2 text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring"
                 aria-label="Email for newsletter"

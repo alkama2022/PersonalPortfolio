@@ -87,8 +87,6 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { property: "og:description", content: personalInfo.subtitle },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
-      { name: "twitter:site", content: "@alkamaumar" },
-      { name: "twitter:creator", content: "@alkamaumar" },
     ],
     links: [
       { rel: "stylesheet", href: appCss },
@@ -110,8 +108,8 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
           jobTitle: personalInfo.title,
           description: personalInfo.subtitle,
           email: personalInfo.email,
-          url: "https://alkamaumar.dev",
-          sameAs: [personalInfo.github, personalInfo.linkedin, personalInfo.twitter],
+          url: "https://personal-portfolio-mevs-me.vercel.app",
+          sameAs: [personalInfo.github, personalInfo.linkedin],
           knowsAbout: [
             "Python",
             "Django",

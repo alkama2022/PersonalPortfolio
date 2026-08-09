@@ -10,7 +10,7 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
 import { Card, CardContent } from "@/components/ui/card";
-import { Github, Linkedin, Mail, MapPin, Phone, Send, Twitter } from "lucide-react";
+import { Github, Linkedin, Mail, MapPin, Phone, Send } from "lucide-react";
 import { toast } from "sonner";
 import { useServerFn } from "@tanstack/react-start";
 import { sendContactMessage } from "@/lib/contact.functions";
@@ -56,14 +56,32 @@ export function ContactSection() {
   const onSubmit = async (data: ContactForm) => {
     setIsSubmitting(true);
     try {
-      await sendMessage({ data });
-      toast.success("Message sent successfully! I'll get back to you soon.");
-      reset();
+      const result = await sendMessage({ data });
+      if (result.success) {
+        toast.success("Message sent successfully! I'll get back to you soon.");
+        reset();
+      } else {
+        openMailClient(data);
+        toast.info(
+          "Email delivery isn't connected yet, so your email app has been opened with your message ready to send.",
+        );
+      }
     } catch (error) {
-      toast.error("Failed to send message. Please try again or email me directly.");
+      openMailClient(data);
+      toast.info(
+        "Email delivery isn't connected yet, so your email app has been opened with your message ready to send.",
+      );
     } finally {
       setIsSubmitting(false);
     }
+  };
+
+  const openMailClient = (data: ContactForm) => {
+    const subject = encodeURIComponent(data.subject);
+    const body = encodeURIComponent(
+      `Name: ${data.name}\nEmail: ${data.email}\n\n${data.message}`,
+    );
+    window.location.href = `mailto:${personalInfo.email}?subject=${subject}&body=${body}`;
   };
 
   return (
@@ -118,15 +136,6 @@ export function ContactSection() {
                   aria-label="LinkedIn"
                 >
                   <Linkedin className="h-5 w-5" />
-                </a>
-                <a
-                  href={personalInfo.twitter}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="grid h-11 w-11 place-items-center rounded-full border border-border bg-background text-muted-foreground transition-colors hover:border-primary hover:text-primary"
-                  aria-label="Twitter"
-                >
-                  <Twitter className="h-5 w-5" />
                 </a>
               </div>
             </div>
