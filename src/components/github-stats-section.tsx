@@ -18,13 +18,23 @@ export function GitHubStatsSection() {
             <ScrollReveal key={stat.label} delay={index * 0.1}>
               <Card className="border-border bg-background text-center transition-all hover:border-primary/30 hover:shadow-lg">
                 <CardContent className="p-6">
-                  <div className="mx-auto mb-3 grid h-12 w-12 place-items-center rounded-full" style={{ backgroundColor: `${stat.color}15` }}>
-                    {index === 0 ? <GitCommit className="h-5 w-5" style={{ color: stat.color }} /> : 
-                     index === 1 ? <GitPullRequest className="h-5 w-5" style={{ color: stat.color }} /> : 
-                     index === 2 ? <Star className="h-5 w-5" style={{ color: stat.color }} /> : 
-                     <Github className="h-5 w-5" style={{ color: stat.color }} />}
+                  <div
+                    className="mx-auto mb-3 grid h-12 w-12 place-items-center rounded-full"
+                    style={{ backgroundColor: `${stat.color}15` }}
+                  >
+                    {index === 0 ? (
+                      <GitCommit className="h-5 w-5" style={{ color: stat.color }} />
+                    ) : index === 1 ? (
+                      <GitPullRequest className="h-5 w-5" style={{ color: stat.color }} />
+                    ) : index === 2 ? (
+                      <Star className="h-5 w-5" style={{ color: stat.color }} />
+                    ) : (
+                      <Github className="h-5 w-5" style={{ color: stat.color }} />
+                    )}
                   </div>
-                  <div className="font-heading text-3xl font-bold text-foreground">{stat.value}</div>
+                  <div className="font-heading text-3xl font-bold text-foreground">
+                    {stat.value}
+                  </div>
                   <div className="mt-1 text-sm text-muted-foreground">{stat.label}</div>
                 </CardContent>
               </Card>
@@ -35,7 +45,9 @@ export function GitHubStatsSection() {
         <ScrollReveal delay={0.3}>
           <Card className="mt-8 border-border bg-background">
             <CardContent className="p-6">
-              <h3 className="mb-4 font-heading text-lg font-semibold text-foreground">Languages Used</h3>
+              <h3 className="mb-4 font-heading text-lg font-semibold text-foreground">
+                Languages Used
+              </h3>
               <div className="flex h-4 w-full overflow-hidden rounded-full">
                 {githubLanguages.map((lang) => (
                   <div
@@ -49,7 +61,10 @@ export function GitHubStatsSection() {
               <div className="mt-4 flex flex-wrap gap-4">
                 {githubLanguages.map((lang) => (
                   <div key={lang.name} className="flex items-center gap-2">
-                    <span className="h-3 w-3 rounded-full" style={{ backgroundColor: lang.color }} />
+                    <span
+                      className="h-3 w-3 rounded-full"
+                      style={{ backgroundColor: lang.color }}
+                    />
                     <span className="text-sm text-muted-foreground">
                       {lang.name} ({lang.value}%)
                     </span>

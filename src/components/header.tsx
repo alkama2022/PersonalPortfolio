@@ -12,7 +12,10 @@ export function Header() {
   return (
     <header className="sticky top-0 z-50 w-full border-b border-border bg-background/80 backdrop-blur-md">
       <div className="container-tight flex h-16 items-center justify-between">
-        <Link to="/" className="flex items-center gap-2 font-heading text-lg font-bold tracking-tight">
+        <Link
+          to="/"
+          className="flex items-center gap-2 font-heading text-lg font-bold tracking-tight"
+        >
           <span className="grid h-8 w-8 place-items-center rounded-lg bg-primary text-primary-foreground">
             A
           </span>
@@ -44,12 +47,7 @@ export function Header() {
 
         <div className="flex items-center gap-2">
           <ThemeToggle variant="ghost" />
-          <Button
-            variant="outline"
-            size="sm"
-            className="hidden md:inline-flex"
-            asChild
-          >
+          <Button variant="outline" size="sm" className="hidden md:inline-flex" asChild>
             <a href={personalInfo.resumeUrl} download>
               Download CV
             </a>

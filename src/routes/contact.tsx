@@ -6,9 +6,17 @@ export const Route = createFileRoute("/contact")({
   head: () => ({
     meta: [
       { title: "Contact — Alkama Umar Liman" },
-      { name: "description", content: "Get in touch with Alkama Umar Liman for backend development, Django, and API projects." },
+      {
+        name: "description",
+        content:
+          "Get in touch with Alkama Umar Liman for backend development, Django, and API projects.",
+      },
       { property: "og:title", content: "Contact — Alkama Umar Liman" },
-      { property: "og:description", content: "Get in touch with Alkama Umar Liman for backend development, Django, and API projects." },
+      {
+        property: "og:description",
+        content:
+          "Get in touch with Alkama Umar Liman for backend development, Django, and API projects.",
+      },
       { property: "og:url", content: "/contact" },
     ],
     links: [{ rel: "canonical", href: "/contact" }],

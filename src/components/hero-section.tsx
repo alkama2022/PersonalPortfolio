@@ -26,8 +26,7 @@ export function HeroSection() {
           </Badge>
 
           <h1 className="font-heading text-4xl font-bold tracking-tight text-foreground md:text-5xl lg:text-6xl">
-            Hi, I&apos;m{" "}
-            <span className="gradient-text">{personalInfo.name}</span>
+            Hi, I&apos;m <span className="gradient-text">{personalInfo.name}</span>
           </h1>
 
           <div className="mt-4 h-8 text-lg font-medium text-foreground md:text-xl">

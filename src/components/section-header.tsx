@@ -7,7 +7,12 @@ interface SectionHeaderProps {
   className?: string;
 }
 
-export function SectionHeader({ title, subtitle, centered = true, className = "" }: SectionHeaderProps) {
+export function SectionHeader({
+  title,
+  subtitle,
+  centered = true,
+  className = "",
+}: SectionHeaderProps) {
   return (
     <ScrollReveal className={className}>
       <div className={`mb-12 ${centered ? "text-center" : ""}`}>
@@ -19,7 +24,9 @@ export function SectionHeader({ title, subtitle, centered = true, className = ""
             {subtitle}
           </p>
         )}
-        <div className={`mt-4 h-1 w-16 rounded-full bg-gradient-to-r from-primary to-ember ${centered ? "mx-auto" : ""}`} />
+        <div
+          className={`mt-4 h-1 w-16 rounded-full bg-gradient-to-r from-primary to-ember ${centered ? "mx-auto" : ""}`}
+        />
       </div>
     </ScrollReveal>
   );

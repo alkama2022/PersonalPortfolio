@@ -14,9 +14,17 @@ export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
       { title: "Alkama Umar Liman — Python Django Backend Developer" },
-      { name: "description", content: "Portfolio of Alkama Umar Liman, a Python Django Backend Developer and IT student building secure, scalable, and modern web applications." },
+      {
+        name: "description",
+        content:
+          "Portfolio of Alkama Umar Liman, a Python Django Backend Developer and IT student building secure, scalable, and modern web applications.",
+      },
       { property: "og:title", content: "Alkama Umar Liman — Python Django Backend Developer" },
-      { property: "og:description", content: "Portfolio of Alkama Umar Liman, a Python Django Backend Developer and IT student building secure, scalable, and modern web applications." },
+      {
+        property: "og:description",
+        content:
+          "Portfolio of Alkama Umar Liman, a Python Django Backend Developer and IT student building secure, scalable, and modern web applications.",
+      },
       { property: "og:url", content: "/" },
     ],
     links: [{ rel: "canonical", href: "/" }],

@@ -233,13 +233,9 @@ export const projects: Project[] = [
   },
 ];
 
-export const allTechnologies = Array.from(
-  new Set(projects.flatMap((p) => p.technologies))
-).sort();
+export const allTechnologies = Array.from(new Set(projects.flatMap((p) => p.technologies))).sort();
 
-export const allCategories = Array.from(
-  new Set(projects.map((p) => p.category))
-).sort();
+export const allCategories = Array.from(new Set(projects.map((p) => p.category))).sort();
 
 export interface ExperienceItem {
   id: string;

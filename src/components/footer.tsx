@@ -17,7 +17,10 @@ export function Footer() {
       <div className="container-tight py-12 md:py-16">
         <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-4">
           <div className="space-y-4">
-            <Link to="/" className="flex items-center gap-2 font-heading text-lg font-bold tracking-tight">
+            <Link
+              to="/"
+              className="flex items-center gap-2 font-heading text-lg font-bold tracking-tight"
+            >
               <span className="grid h-8 w-8 place-items-center rounded-lg bg-primary text-primary-foreground">
                 A
               </span>
@@ -46,7 +49,9 @@ export function Footer() {
           </div>
 
           <div>
-            <h3 className="mb-4 font-heading text-sm font-semibold uppercase tracking-wider">Quick Links</h3>
+            <h3 className="mb-4 font-heading text-sm font-semibold uppercase tracking-wider">
+              Quick Links
+            </h3>
             <ul className="space-y-2">
               {quickLinks.map((link) => (
                 <li key={link.href}>
@@ -62,7 +67,9 @@ export function Footer() {
           </div>
 
           <div>
-            <h3 className="mb-4 font-heading text-sm font-semibold uppercase tracking-wider">Contact</h3>
+            <h3 className="mb-4 font-heading text-sm font-semibold uppercase tracking-wider">
+              Contact
+            </h3>
             <ul className="space-y-3">
               <li className="flex items-center gap-2 text-sm text-muted-foreground">
                 <Mail className="h-4 w-4 shrink-0" />
@@ -84,7 +91,9 @@ export function Footer() {
           </div>
 
           <div>
-            <h3 className="mb-4 font-heading text-sm font-semibold uppercase tracking-wider">Newsletter</h3>
+            <h3 className="mb-4 font-heading text-sm font-semibold uppercase tracking-wider">
+              Newsletter
+            </h3>
             <p className="mb-3 text-sm text-muted-foreground">
               Subscribe for updates on new projects and blog posts.
             </p>

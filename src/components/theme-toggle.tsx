@@ -13,11 +13,7 @@ export function ThemeToggle({ variant = "outline" }: { variant?: "outline" | "gh
       aria-label={resolvedTheme === "dark" ? "Switch to light mode" : "Switch to dark mode"}
       className="rounded-full"
     >
-      {resolvedTheme === "dark" ? (
-        <Sun className="h-4 w-4" />
-      ) : (
-        <Moon className="h-4 w-4" />
-      )}
+      {resolvedTheme === "dark" ? <Sun className="h-4 w-4" /> : <Moon className="h-4 w-4" />}
     </Button>
   );
 }

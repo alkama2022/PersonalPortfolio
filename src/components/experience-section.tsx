@@ -42,13 +42,17 @@ export function ExperienceSection() {
                         isLeft ? "md:text-right" : "md:text-left"
                       }`}
                     >
-                      <div className={`mb-2 flex items-center gap-2 ${isLeft ? "md:justify-end" : ""}`}>
+                      <div
+                        className={`mb-2 flex items-center gap-2 ${isLeft ? "md:justify-end" : ""}`}
+                      >
                         <Badge variant="outline" className="text-xs">
                           {config.label}
                         </Badge>
                         <span className="text-xs text-muted-foreground">{item.period}</span>
                       </div>
-                      <h3 className="font-heading text-lg font-semibold text-foreground">{item.title}</h3>
+                      <h3 className="font-heading text-lg font-semibold text-foreground">
+                        {item.title}
+                      </h3>
                       <p className="text-sm font-medium text-primary">{item.organization}</p>
                       <p className="mt-2 text-sm text-muted-foreground">{item.description}</p>
                     </div>

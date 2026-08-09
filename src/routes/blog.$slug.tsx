@@ -80,12 +80,13 @@ function BlogPostPage() {
           <div className="prose prose-slate mt-8 max-w-none dark:prose-invert">
             <p className="text-lg text-muted-foreground">{post.excerpt}</p>
             <p className="text-muted-foreground">
-              Full article content coming soon. This is a placeholder for the blog post where the complete
-              tutorial, code examples, and insights will be published.
+              Full article content coming soon. This is a placeholder for the blog post where the
+              complete tutorial, code examples, and insights will be published.
             </p>
             <div className="my-8 rounded-lg border border-border bg-surface p-6">
               <p className="text-sm text-muted-foreground">
-                Thanks for reading. If you have questions or want to discuss this topic, feel free to{" "}
+                Thanks for reading. If you have questions or want to discuss this topic, feel free
+                to{" "}
                 <Link to="/contact" className="text-primary hover:underline">
                   get in touch
                 </Link>
@@ -98,4 +99,3 @@ function BlogPostPage() {
     </PageLayout>
   );
 }
-

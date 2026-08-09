@@ -16,12 +16,8 @@ export function AboutSection() {
         <div className="grid gap-12 lg:grid-cols-2">
           <ScrollReveal>
             <div className="space-y-6">
-              <h3 className="font-heading text-2xl font-semibold text-foreground">
-                Who I am
-              </h3>
-              <p className="text-muted-foreground leading-relaxed">
-                {personalInfo.bio}
-              </p>
+              <h3 className="font-heading text-2xl font-semibold text-foreground">Who I am</h3>
+              <p className="text-muted-foreground leading-relaxed">{personalInfo.bio}</p>
               <div className="grid gap-4 sm:grid-cols-2">
                 <div className="rounded-xl border border-border bg-background p-4">
                   <Lightbulb className="mb-3 h-5 w-5 text-primary" />
@@ -43,9 +39,7 @@ export function AboutSection() {
 
           <ScrollReveal delay={0.2}>
             <div className="space-y-6">
-              <h3 className="font-heading text-2xl font-semibold text-foreground">
-                Career Goals
-              </h3>
+              <h3 className="font-heading text-2xl font-semibold text-foreground">Career Goals</h3>
               <ul className="space-y-4">
                 {careerGoals.map((goal, index) => (
                   <li key={index} className="flex items-start gap-3">

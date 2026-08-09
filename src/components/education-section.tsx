@@ -39,7 +39,9 @@ export function EducationSection() {
                   <CardContent className="space-y-3">
                     <p className="text-sm text-muted-foreground">{item.description}</p>
                     <div>
-                      <p className="mb-2 text-sm font-medium text-foreground">Relevant Coursework:</p>
+                      <p className="mb-2 text-sm font-medium text-foreground">
+                        Relevant Coursework:
+                      </p>
                       <div className="flex flex-wrap gap-1.5">
                         {item.coursework.map((course) => (
                           <Badge key={course} variant="secondary" className="text-xs">
@@ -67,7 +69,9 @@ export function EducationSection() {
                       </div>
                       <div className="flex-1">
                         <div className="flex items-start justify-between gap-2">
-                          <h4 className="font-heading font-semibold text-foreground">{cert.title}</h4>
+                          <h4 className="font-heading font-semibold text-foreground">
+                            {cert.title}
+                          </h4>
                           <Badge
                             variant={cert.status === "completed" ? "default" : "outline"}
                             className="shrink-0 text-xs"

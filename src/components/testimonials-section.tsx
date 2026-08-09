@@ -27,7 +27,9 @@ export function TestimonialsSection() {
                       <User className="h-5 w-5 text-muted-foreground" />
                     </div>
                     <div>
-                      <div className="font-heading font-semibold text-foreground">{testimonial.author}</div>
+                      <div className="font-heading font-semibold text-foreground">
+                        {testimonial.author}
+                      </div>
                       <div className="text-xs text-muted-foreground">{testimonial.role}</div>
                     </div>
                   </div>
