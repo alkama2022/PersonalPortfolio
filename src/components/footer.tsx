@@ -89,7 +89,10 @@ export function Footer() {
               </li>
               <li className="flex items-center gap-2 text-sm text-muted-foreground">
                 <Phone className="h-4 w-4 shrink-0" />
-                <a href={`tel:${personalInfo.phone.replace(/[^\d+]/g, "")}`} className="hover:text-primary">
+                <a
+                  href={`tel:${personalInfo.phone.replace(/[^\d+]/g, "")}`}
+                  className="hover:text-primary"
+                >
                   {personalInfo.phone}
                 </a>
               </li>
