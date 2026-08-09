@@ -213,6 +213,24 @@ export const projects: Project[] = [
     category: "API",
     featured: false,
   },
+  {
+    id: "vetlink",
+    title: "VetLink",
+    description:
+      "A digital veterinary and agriculture platform that connects farmers, veterinarians, clinics, and laboratories through animal health management, disease reporting, and agricultural solutions.",
+    technologies: ["Django", "Django REST Framework", "React", "Vite"],
+    features: [
+      "Farmer and veterinarian accounts",
+      "Animal patient and health records",
+      "Clinic, laboratory, and inventory management",
+      "Appointments, billing, and disease reporting",
+    ],
+    image: "/images/project-vetlink.jpg",
+    github: "https://github.com/alkama2022/vetlink",
+    live: "https://alkama2022-vetlinkfrontendkano.vercel.app/",
+    category: "Web",
+    featured: true,
+  },
 ];
 
 export const allTechnologies = Array.from(

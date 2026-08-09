@@ -11,14 +11,33 @@ export function ProjectCard({ project }: { project: Project }) {
   return (
     <Card className="group flex h-full flex-col overflow-hidden border-border bg-surface transition-all hover:border-primary/30 hover:shadow-lg">
       <div className="relative aspect-video overflow-hidden bg-muted">
-        <img
-          src={project.image}
-          alt={`${project.title} screenshot`}
-          className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
-          loading="lazy"
-          width={600}
-          height={340}
-        />
+        {project.live.startsWith("http") ? (
+          <a
+            href={project.live}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label={`Open ${project.title} live demo`}
+            className="block h-full w-full"
+          >
+            <img
+              src={project.image}
+              alt={`${project.title} screenshot`}
+              className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+              loading="lazy"
+              width={600}
+              height={340}
+            />
+          </a>
+        ) : (
+          <img
+            src={project.image}
+            alt={`${project.title} screenshot`}
+            className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+            loading="lazy"
+            width={600}
+            height={340}
+          />
+        )}
         <div className="absolute inset-0 bg-gradient-to-t from-background/80 to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
         <div className="absolute bottom-0 left-0 right-0 flex translate-y-full gap-2 p-4 transition-transform duration-300 group-hover:translate-y-0">
           <Button size="sm" variant="secondary" className="flex-1" asChild>
