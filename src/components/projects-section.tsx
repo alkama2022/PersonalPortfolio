@@ -119,7 +119,7 @@ export function ProjectsSection() {
           subtitle="A selection of my recent work across backend systems, APIs, and full-stack applications."
         />
 
-        <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+        <div className="mx-auto grid max-w-4xl gap-6 md:grid-cols-2">
           {featuredProjects.map((project, index) => (
             <ScrollReveal key={project.id} delay={index * 0.1}>
               <ProjectCard project={project} />
