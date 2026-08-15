@@ -153,6 +153,24 @@ export const projects: Project[] = [
     category: "E-Commerce",
     featured: true,
   },
+  {
+    id: "legal-platform",
+    title: "Legal Platform",
+    description:
+      "A modern legal technology platform designed to help lawyers and legal professionals manage legal cases, clients, documents, hearings, and related workflows through a centralized, secure web interface.",
+    technologies: ["React", "TypeScript", "TanStack Router", "Tailwind CSS", "shadcn/ui"],
+    features: [
+      "Secure counsel sign-in portal with automatic session expiry",
+      "Case and hearing management",
+      "Client records and court documents",
+      "Case outcomes and practice metrics",
+    ],
+    image: "/images/project-legal.jpg",
+    github: "",
+    live: "https://lawyer-one.vercel.app/",
+    category: "Legal Tech",
+    featured: true,
+  },
 ];
 
 export const allTechnologies = Array.from(new Set(projects.flatMap((p) => p.technologies))).sort();
