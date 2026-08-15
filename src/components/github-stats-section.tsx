@@ -19,7 +19,7 @@ export function GitHubStatsSection() {
   const { data: stats } = useQuery({
     queryKey: ["github-stats"],
     queryFn: getGitHubStats,
-    initialData: FALLBACK_GITHUB_STATS,
+    placeholderData: FALLBACK_GITHUB_STATS,
     staleTime: 6 * 60 * 60 * 1000,
   });
 
