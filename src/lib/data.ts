@@ -1,6 +1,10 @@
 import {
+  AppWindow,
+  Boxes,
+  Braces,
   Code2,
   Database,
+  DatabaseZap,
   GitBranch,
   Globe,
   Layout,
@@ -9,6 +13,7 @@ import {
   Shield,
   Smartphone,
   Terminal,
+  Workflow,
   type LucideIcon,
 } from "lucide-react";
 
@@ -98,6 +103,17 @@ export const skillCategories: SkillCategory[] = [
       { name: "VS Code", level: 90, icon: Code2 },
       { name: "Postman", level: 80, icon: Smartphone },
       { name: "Docker", level: 55, icon: Settings },
+    ],
+  },
+  {
+    title: "Desktop Development",
+    skills: [
+      { name: "C#", level: 70, icon: Braces },
+      { name: ".NET", level: 65, icon: Boxes },
+      { name: "WPF", level: 60, icon: AppWindow },
+      { name: "MVVM", level: 60, icon: Workflow },
+      { name: "Entity Framework Core", level: 65, icon: DatabaseZap },
+      { name: "SQL Server", level: 70, icon: Database },
     ],
   },
 ];

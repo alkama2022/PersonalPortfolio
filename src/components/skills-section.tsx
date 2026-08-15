@@ -10,7 +10,7 @@ export function SkillsSection() {
       <div className="container-tight">
         <SectionHeader
           title="Skills & Technologies"
-          subtitle="My technical toolkit spans backend development, database design, frontend fundamentals, and modern DevOps tools."
+          subtitle="My technical toolkit spans backend development, database design, desktop development, frontend fundamentals, and modern DevOps tools."
         />
 
         <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
