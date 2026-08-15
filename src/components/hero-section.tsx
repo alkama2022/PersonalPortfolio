@@ -111,7 +111,7 @@ export function HeroSection() {
             </div>
             <div className="absolute -right-4 top-8 rounded-lg border border-border bg-background p-3 shadow-lg md:p-4">
               <div className="font-heading text-2xl font-bold text-foreground">15+</div>
-              <div className="text-xs text-muted-foreground">Projects</div>
+              <div className="text-xs text-muted-foreground">GitHub Repos</div>
             </div>
           </div>
         </motion.div>

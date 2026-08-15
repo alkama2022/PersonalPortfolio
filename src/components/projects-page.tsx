@@ -102,7 +102,7 @@ export function ProjectsPage() {
         </div>
 
         {filteredProjects.length > 0 ? (
-          <div className="mx-auto grid max-w-4xl gap-6 md:grid-cols-2">
+          <div className="mx-auto grid max-w-5xl gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {filteredProjects.map((project, index) => (
               <ScrollReveal key={project.id} delay={index * 0.05} className="min-w-0">
                 <ProjectCard project={project} />
