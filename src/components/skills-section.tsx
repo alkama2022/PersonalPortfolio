@@ -1,8 +1,31 @@
 import { skillCategories } from "@/lib/data";
 import { ScrollReveal } from "@/components/scroll-reveal";
 import { SectionHeader } from "@/components/section-header";
-import { Progress } from "@/components/ui/progress";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { motion, useInView, useReducedMotion } from "framer-motion";
+import { useRef } from "react";
+
+function SkillBar({ level, delay }: { level: number; delay: number }) {
+  const ref = useRef<HTMLDivElement>(null);
+  const inView = useInView(ref, { once: true, margin: "-50px" });
+  const reduce = useReducedMotion();
+  const hiddenWidth = reduce ? `${level}%` : "0%";
+
+  return (
+    <div ref={ref} className="h-1.5 w-full overflow-hidden rounded-full bg-primary/20">
+      <motion.div
+        className="h-full rounded-full bg-primary"
+        initial={{ width: hiddenWidth }}
+        animate={{ width: inView || reduce ? `${level}%` : hiddenWidth }}
+        transition={{
+          duration: reduce ? 0 : 0.8,
+          delay: reduce ? 0 : delay,
+          ease: [0.16, 1, 0.3, 1],
+        }}
+      />
+    </div>
+  );
+}
 
 export function SkillsSection() {
   return (
@@ -30,7 +53,7 @@ export function SkillsSection() {
                         </div>
                         <span className="text-xs text-muted-foreground">{skill.level}%</span>
                       </div>
-                      <Progress value={skill.level} className="h-1.5" />
+                      <SkillBar level={skill.level} delay={index * 0.05} />
                     </div>
                   ))}
                 </CardContent>

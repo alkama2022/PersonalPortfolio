@@ -1,6 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { PageLayout } from "@/components/page-layout";
 import { HeroSection } from "@/components/hero-section";
+import { TechMarquee } from "@/components/tech-marquee";
 import { AboutSection } from "@/components/about-section";
 import { SkillsSection } from "@/components/skills-section";
 import { ProjectsSection } from "@/components/projects-section";
@@ -36,6 +37,7 @@ function IndexPage() {
   return (
     <PageLayout>
       <HeroSection />
+      <TechMarquee />
       <AboutSection />
       <SkillsSection />
       <ProjectsSection />

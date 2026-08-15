@@ -1,24 +1,27 @@
 import { Link } from "@tanstack/react-router";
 import { personalInfo } from "@/lib/data";
 import { TypingEffect } from "@/components/typing-effect";
+import { CountUp } from "@/components/count-up";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { motion } from "framer-motion";
+import { motion, useReducedMotion } from "framer-motion";
 import { ArrowDown, Download, Github, Linkedin, Mail } from "lucide-react";
 
 export function HeroSection() {
+  const reduce = useReducedMotion();
+
   return (
     <section className="relative overflow-hidden bg-background py-20 md:py-32 lg:py-40">
       <div className="absolute inset-0 -z-10">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,var(--color-primary)/8%,transparent_40%)]" />
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_bottom_left,var(--color-ember)/5%,transparent_40%)]" />
+        <div className="absolute inset-0 animate-blob-drift motion-reduce:animate-none bg-[radial-gradient(circle_at_top_right,var(--color-primary)/8%,transparent_40%)]" />
+        <div className="absolute inset-0 animate-blob-drift motion-reduce:animate-none bg-[radial-gradient(circle_at_bottom_left,var(--color-ember)/5%,transparent_40%)] [animation-delay:-8s]" />
       </div>
 
       <div className="container-tight grid gap-12 lg:grid-cols-2 lg:items-center">
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: reduce ? 0 : 30 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+          transition={{ duration: reduce ? 0 : 0.6, ease: [0.16, 1, 0.3, 1] }}
           className="max-w-2xl"
         >
           <Badge variant="secondary" className="mb-4 text-xs font-medium">
@@ -88,9 +91,13 @@ export function HeroSection() {
         </motion.div>
 
         <motion.div
-          initial={{ opacity: 0, scale: 0.95 }}
+          initial={{ opacity: 0, scale: reduce ? 1 : 0.95 }}
           animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.6, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
+          transition={{
+            duration: reduce ? 0 : 0.6,
+            delay: reduce ? 0 : 0.2,
+            ease: [0.16, 1, 0.3, 1],
+          }}
           className="relative flex min-w-0 justify-center lg:justify-end"
         >
           <div className="relative">
@@ -106,11 +113,15 @@ export function HeroSection() {
               />
             </div>
             <div className="absolute -bottom-4 -left-4 rounded-lg border border-border bg-background p-3 shadow-lg md:p-4">
-              <div className="font-heading text-2xl font-bold text-foreground">2+</div>
+              <div className="font-heading text-2xl font-bold text-foreground">
+                <CountUp value={2} suffix="+" />
+              </div>
               <div className="text-xs text-muted-foreground">Years Experience</div>
             </div>
             <div className="absolute -right-4 top-8 rounded-lg border border-border bg-background p-3 shadow-lg md:p-4">
-              <div className="font-heading text-2xl font-bold text-foreground">15+</div>
+              <div className="font-heading text-2xl font-bold text-foreground">
+                <CountUp value={15} suffix="+" />
+              </div>
               <div className="text-xs text-muted-foreground">GitHub Repos</div>
             </div>
           </div>

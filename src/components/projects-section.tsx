@@ -45,6 +45,10 @@ export function ProjectCard({ project }: { project: Project }) {
             height={340}
           />
         )}
+        <div
+          aria-hidden="true"
+          className="pointer-events-none absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-primary/10 to-transparent transition-transform duration-700 ease-out group-hover:translate-x-full"
+        />
         {(hasLive || hasGithub) && (
           <>
             <div className="absolute inset-0 hidden bg-gradient-to-t from-background/80 to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100 sm:block" />

@@ -1,6 +1,7 @@
 import { githubStats, githubLanguages } from "@/lib/data";
 import { ScrollReveal } from "@/components/scroll-reveal";
 import { SectionHeader } from "@/components/section-header";
+import { CountUp } from "@/components/count-up";
 import { Card, CardContent } from "@/components/ui/card";
 import { Github, GitCommit, GitPullRequest, Star } from "lucide-react";
 
@@ -33,7 +34,7 @@ export function GitHubStatsSection() {
                     )}
                   </div>
                   <div className="font-heading text-3xl font-bold text-foreground">
-                    {stat.value}
+                    <CountUp value={stat.value} />
                   </div>
                   <div className="mt-1 text-sm text-muted-foreground">{stat.label}</div>
                 </CardContent>
