@@ -55,8 +55,7 @@ export const getGitHubStats = createServerFn({ method: "GET" }).handler(async ()
     const repos = await reposRes.json();
 
     const totalStars = repos.reduce(
-      (sum: number, repo: { stargazers_count?: number }) =>
-        sum + (repo.stargazers_count ?? 0),
+      (sum: number, repo: { stargazers_count?: number }) => sum + (repo.stargazers_count ?? 0),
       0,
     );
 

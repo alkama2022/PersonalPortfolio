@@ -13,7 +13,7 @@ import { Toaster } from "sonner";
 import appCss from "../styles.css?url";
 import { ThemeProvider, ThemeScript } from "@/components/theme-provider";
 import { reportLovableError } from "@/lib/lovable-error-reporting";
-import { personalInfo } from "@/lib/data";
+import { personalInfo, siteUrl } from "@/lib/data";
 
 function NotFoundComponent() {
   return (
@@ -86,16 +86,15 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { property: "og:title", content: `${personalInfo.name} — ${personalInfo.title}` },
       { property: "og:description", content: personalInfo.subtitle },
       { property: "og:type", content: "website" },
+      { property: "og:url", content: siteUrl },
+      { property: "og:image", content: `${siteUrl}/images/og-image.jpg` },
+      { property: "og:image:width", content: "1200" },
+      { property: "og:image:height", content: "630" },
       { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:image", content: `${siteUrl}/images/og-image.jpg` },
     ],
     links: [
       { rel: "stylesheet", href: appCss },
-      { rel: "preconnect", href: "https://fonts.googleapis.com" },
-      { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
-      {
-        rel: "stylesheet",
-        href: "https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=DM+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap",
-      },
       { rel: "icon", href: "/favicon.ico", type: "image/x-icon" },
     ],
     scripts: [
@@ -108,7 +107,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
           jobTitle: personalInfo.title,
           description: personalInfo.subtitle,
           email: personalInfo.email,
-          url: "https://personal-portfolio-mevs-me.vercel.app",
+          url: siteUrl,
           sameAs: [personalInfo.github, personalInfo.linkedin],
           knowsAbout: [
             "Python",
@@ -116,6 +115,13 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
             "Django REST Framework",
             "PostgreSQL",
             "Backend Development",
+            "C#",
+            ".NET",
+            "WPF",
+            "MVVM",
+            "Entity Framework Core",
+            "SQL Server",
+            "Desktop Development",
           ],
         }),
       },

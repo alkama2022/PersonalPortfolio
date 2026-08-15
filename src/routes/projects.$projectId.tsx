@@ -93,7 +93,10 @@ function ProjectDetailPage() {
                   </h2>
                   <ul className="mt-3 space-y-2">
                     {project.features.map((feature) => (
-                      <li key={feature} className="flex items-start gap-2 text-sm text-muted-foreground">
+                      <li
+                        key={feature}
+                        className="flex items-start gap-2 text-sm text-muted-foreground"
+                      >
                         <Check className="mt-0.5 h-4 w-4 shrink-0 text-primary" />
                         {feature}
                       </li>
@@ -103,9 +106,7 @@ function ProjectDetailPage() {
               )}
 
               <div className="mt-6">
-                <h2 className="font-heading text-lg font-semibold text-foreground">
-                  Technologies
-                </h2>
+                <h2 className="font-heading text-lg font-semibold text-foreground">Technologies</h2>
                 <div className="mt-3 flex flex-wrap gap-1.5">
                   {project.technologies.map((tech) => (
                     <Badge key={tech} variant="secondary">
@@ -138,17 +139,11 @@ function ProjectDetailPage() {
 
           {related.length > 0 && (
             <div className="mt-16">
-              <h2 className="font-heading text-xl font-semibold text-foreground">
-                Other projects
-              </h2>
+              <h2 className="font-heading text-xl font-semibold text-foreground">Other projects</h2>
               <div className="mt-5 grid gap-6 sm:grid-cols-2">
                 {related.map((p, index) => (
                   <ScrollReveal key={p.id} delay={index * 0.1}>
-                    <Link
-                      to="/projects/$projectId"
-                      params={{ projectId: p.id }}
-                      className="block"
-                    >
+                    <Link to="/projects/$projectId" params={{ projectId: p.id }} className="block">
                       <Card className="h-full overflow-hidden border-border bg-surface transition-all hover:border-primary/30 hover:shadow-lg">
                         <div className="aspect-video w-full overflow-hidden">
                           <img

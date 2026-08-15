@@ -54,6 +54,8 @@ export const socialLinks = [
   { label: "LinkedIn", href: personalInfo.linkedin, icon: "Linkedin" },
 ];
 
+export const siteUrl = "https://personal-portfolio-mevs-me.vercel.app";
+
 export interface Skill {
   name: string;
   level: number;
