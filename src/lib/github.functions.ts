@@ -80,12 +80,9 @@ export const getGitHubStats = createServerFn({ method: "GET" }).handler(async ()
       languages: languages.length ? languages : FALLBACK_GITHUB_STATS.languages,
     };
 
-    console.log("[github-debug] LIVE DATA", JSON.stringify(data));
-
     cache = { data, at: Date.now() };
     return data;
-  } catch (error) {
-    console.log("[github-debug] ERROR", String(error));
+  } catch {
     return FALLBACK_GITHUB_STATS;
   }
 });
