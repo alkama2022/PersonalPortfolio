@@ -1,6 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import type {} from "@tanstack/react-start";
-import { blogPosts } from "@/lib/data";
+import { blogPosts, projects } from "@/lib/data";
 
 // Site URL used for absolute sitemap URLs. Override via SITE_URL env var
 // (Vercel sets VERCEL_PROJECT_PRODUCTION_URL for the deployment domain).
@@ -24,6 +24,11 @@ export const Route = createFileRoute("/sitemap.xml")({
         const entries: SitemapEntry[] = [
           { path: "/", changefreq: "weekly", priority: "1.0" },
           { path: "/projects", changefreq: "weekly", priority: "0.8" },
+          ...projects.map((project) => ({
+            path: `/projects/${project.id}`,
+            changefreq: "monthly" as const,
+            priority: "0.7",
+          })),
           { path: "/blog", changefreq: "weekly", priority: "0.8" },
           { path: "/contact", changefreq: "monthly", priority: "0.7" },
           ...blogPosts.map((post) => ({

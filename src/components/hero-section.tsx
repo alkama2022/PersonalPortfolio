@@ -36,6 +36,7 @@ export function HeroSection() {
             <TypingEffect
               texts={[
                 "Python Django Backend Developer",
+                "C# / .NET Desktop Developer",
                 "Information Technology Student",
                 "API & Database Enthusiast",
               ]}

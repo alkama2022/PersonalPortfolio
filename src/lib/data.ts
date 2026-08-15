@@ -19,8 +19,8 @@ import {
 
 export const personalInfo = {
   name: "Alkama Umar Liman",
-  title: "Python Django Backend Developer",
-  subtitle: "Building secure, scalable, and modern web applications.",
+  title: "Backend & Desktop Developer",
+  subtitle: "Building secure, scalable web and desktop applications.",
   location: "Nigeria",
   email: "alkamaumarliman@gmail.com",
   phone: "+234 816 098 3789",
@@ -304,27 +304,6 @@ export const certifications: Certification[] = [
   },
 ];
 
-export interface GitHubStat {
-  label: string;
-  value: string;
-  color: string;
-}
-
-export const githubStats: GitHubStat[] = [
-  { label: "Public Repositories", value: "15+", color: "#3b82f6" },
-  { label: "Total Contributions", value: "200+", color: "#e85d3a" },
-  { label: "Primary Language", value: "Python", color: "#fbbf24" },
-  { label: "Open Source PRs", value: "10+", color: "#10b981" },
-];
-
-export const githubLanguages = [
-  { name: "Python", value: 60, color: "#3b82f6" },
-  { name: "TypeScript", value: 20, color: "#e85d3a" },
-  { name: "JavaScript", value: 10, color: "#fbbf24" },
-  { name: "HTML/CSS", value: 8, color: "#10b981" },
-  { name: "SQL", value: 2, color: "#8b5cf6" },
-];
-
 export interface BlogPost {
   id: string;
   title: string;
@@ -341,7 +320,7 @@ export const blogPosts: BlogPost[] = [
     title: "Getting Started with Django REST Framework",
     excerpt:
       "A beginner-friendly guide to building RESTful APIs with Django REST Framework, serializers, viewsets, and routers.",
-    date: "2025-06-15",
+    date: "2026-08-02",
     readTime: "6 min read",
     tags: ["Django", "API", "Backend"],
     slug: "getting-started-with-django-rest-framework",
@@ -351,7 +330,7 @@ export const blogPosts: BlogPost[] = [
     title: "Building Secure APIs with JWT Authentication",
     excerpt:
       "Learn how to implement JWT authentication in your Django API to protect endpoints and manage user sessions securely.",
-    date: "2025-06-01",
+    date: "2026-07-18",
     readTime: "8 min read",
     tags: ["JWT", "Security", "Django"],
     slug: "building-secure-apis-with-jwt-authentication",
@@ -361,7 +340,7 @@ export const blogPosts: BlogPost[] = [
     title: "Database Design Tips for Django Developers",
     excerpt:
       "Best practices for designing relational databases with Django and PostgreSQL, from normalization to indexing.",
-    date: "2025-05-20",
+    date: "2026-06-27",
     readTime: "7 min read",
     tags: ["PostgreSQL", "Database", "Django"],
     slug: "database-design-tips-for-django-developers",

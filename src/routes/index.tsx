@@ -9,21 +9,22 @@ import { ExperienceSection } from "@/components/experience-section";
 import { EducationSection } from "@/components/education-section";
 import { GitHubStatsSection } from "@/components/github-stats-section";
 import { ContactSection } from "@/components/contact-section";
+import { personalInfo } from "@/lib/data";
 
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Alkama Umar Liman — Python Django Backend Developer" },
+      { title: `${personalInfo.name} — ${personalInfo.title}` },
       {
         name: "description",
         content:
-          "Portfolio of Alkama Umar Liman, a Python Django Backend Developer and IT student building secure, scalable, and modern web applications.",
+          "Portfolio of Alkama Umar Liman, a backend and desktop developer building secure, scalable web and desktop applications.",
       },
-      { property: "og:title", content: "Alkama Umar Liman — Python Django Backend Developer" },
+      { property: "og:title", content: `${personalInfo.name} — ${personalInfo.title}` },
       {
         property: "og:description",
         content:
-          "Portfolio of Alkama Umar Liman, a Python Django Backend Developer and IT student building secure, scalable, and modern web applications.",
+          "Portfolio of Alkama Umar Liman, a backend and desktop developer building secure, scalable web and desktop applications.",
       },
       { property: "og:url", content: "/" },
     ],

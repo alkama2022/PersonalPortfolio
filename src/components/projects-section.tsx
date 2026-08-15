@@ -100,7 +100,7 @@ export function ProjectCard({ project }: { project: Project }) {
       </CardContent>
       <CardFooter className="pt-0">
         <Button variant="ghost" size="sm" className="px-0 text-primary hover:text-primary" asChild>
-          <Link to="/projects">
+          <Link to="/projects/$projectId" params={{ projectId: project.id }}>
             View Details
             <ArrowUpRight className="ml-1 h-4 w-4" />
           </Link>
