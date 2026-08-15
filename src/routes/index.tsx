@@ -7,7 +7,6 @@ import { SkillsSection } from "@/components/skills-section";
 import { ProjectsSection } from "@/components/projects-section";
 import { ExperienceSection } from "@/components/experience-section";
 import { EducationSection } from "@/components/education-section";
-import { TestimonialsSection } from "@/components/testimonials-section";
 import { GitHubStatsSection } from "@/components/github-stats-section";
 import { ContactSection } from "@/components/contact-section";
 
@@ -44,7 +43,6 @@ function IndexPage() {
       <ExperienceSection />
       <EducationSection />
       <GitHubStatsSection />
-      <TestimonialsSection />
       <ContactSection />
     </PageLayout>
   );

@@ -304,41 +304,6 @@ export const certifications: Certification[] = [
   },
 ];
 
-export interface Testimonial {
-  id: string;
-  quote: string;
-  author: string;
-  role: string;
-  avatar: string;
-}
-
-export const testimonials: Testimonial[] = [
-  {
-    id: "testimonial-1",
-    quote:
-      "Alkama is a dedicated backend developer with a strong grasp of Django and database design. He delivers clean, well-structured code and is always eager to learn.",
-    author: "Future Client / Colleague",
-    role: "Software Engineer",
-    avatar: "",
-  },
-  {
-    id: "testimonial-2",
-    quote:
-      "Working with Alkama was a great experience. His attention to detail and problem-solving skills made our project successful.",
-    author: "Future Client / Mentor",
-    role: "Project Manager",
-    avatar: "",
-  },
-  {
-    id: "testimonial-3",
-    quote:
-      "A talented developer who combines technical skills with a strong work ethic. I highly recommend him for backend and full-stack projects.",
-    author: "Future Colleague",
-    role: "Tech Lead",
-    avatar: "",
-  },
-];
-
 export interface GitHubStat {
   label: string;
   value: string;
