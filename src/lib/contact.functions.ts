@@ -33,7 +33,7 @@ export const sendContactMessage = createServerFn({ method: "POST" })
         },
         body: JSON.stringify({
           from: process.env.RESEND_FROM_EMAIL ?? "Portfolio <onboarding@resend.dev>",
-          to: [process.env.RESEND_TO_EMAIL ?? "alkamaumarliman@gmail.com"],
+          to: [process.env.RESEND_TO_EMAIL ?? "alkalineumarliman@gmail.com"],
           reply_to: data.email,
           subject: `[Portfolio] ${data.subject}`,
           text: `Name: ${data.name}\nEmail: ${data.email}\n\n${data.message}`,

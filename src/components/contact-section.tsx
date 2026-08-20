@@ -40,7 +40,11 @@ const contactSchema = z.object({
 
 type ContactForm = z.infer<typeof contactSchema>;
 
-export function ContactSection() {
+interface ContactSectionProps {
+  defaultSubject?: string;
+}
+
+export function ContactSection({ defaultSubject }: ContactSectionProps) {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const sendMessage = useServerFn(sendContactMessage);
 
@@ -51,6 +55,12 @@ export function ContactSection() {
     formState: { errors },
   } = useForm<ContactForm>({
     resolver: zodResolver(contactSchema),
+    defaultValues: {
+      name: "",
+      email: "",
+      subject: defaultSubject ?? "",
+      message: "",
+    },
   });
 
   const onSubmit = async (data: ContactForm) => {
@@ -82,6 +92,10 @@ export function ContactSection() {
     window.location.href = `mailto:${personalInfo.email}?subject=${subject}&body=${body}`;
   };
 
+  const whatsappUrl = `https://wa.me/${personalInfo.whatsapp.replace(/[^\d]/g, "")}?text=${encodeURIComponent(
+    "Hello Alkama! I have a project in mind and would like to discuss it.",
+  )}`;
+
   return (
     <section id="contact" className="bg-surface py-20 md:py-28">
       <div className="container-tight">
@@ -89,6 +103,31 @@ export function ContactSection() {
           title="Get In Touch"
           subtitle="Have a project, opportunity, or question? I'd love to hear from you."
         />
+
+        <ScrollReveal delay={0.1}>
+          <div className="mb-10 flex flex-col items-center gap-4 rounded-2xl border border-border bg-background p-8 text-center md:p-10">
+            <h3 className="font-heading text-2xl font-bold tracking-tight text-foreground md:text-3xl">
+              Have a project in mind? Let&apos;s build it.
+            </h3>
+            <p className="max-w-xl text-balance text-muted-foreground md:text-lg">
+              Tell me about your idea and I&apos;ll get back to you with a plan and a timeline.
+            </p>
+            <div className="mt-2 flex w-full flex-col gap-3 sm:w-auto sm:flex-row">
+              <Button size="lg" className="w-full min-h-11 sm:w-auto" asChild>
+                <a href={whatsappUrl} target="_blank" rel="noopener noreferrer">
+                  <MessageCircle className="h-5 w-5" aria-hidden="true" />
+                  Hire Me
+                </a>
+              </Button>
+              <Button variant="outline" size="lg" className="w-full min-h-11 sm:w-auto" asChild>
+                <a href={`mailto:${personalInfo.email}`}>
+                  <Mail className="h-5 w-5" aria-hidden="true" />
+                  Email Me
+                </a>
+              </Button>
+            </div>
+          </div>
+        </ScrollReveal>
 
         <div className="grid gap-8 lg:grid-cols-3">
           <ScrollReveal className="lg:col-span-1">

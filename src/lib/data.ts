@@ -8,6 +8,10 @@ import {
   GitBranch,
   Globe,
   Layout,
+  LayoutDashboard,
+  Lightbulb,
+  Layers,
+  Rocket,
   Server,
   Settings,
   Shield,
@@ -22,7 +26,7 @@ export const personalInfo = {
   title: "Backend & Desktop Developer",
   subtitle: "Building secure, scalable web and desktop applications.",
   location: "Nigeria",
-  email: "alkamaumarliman@gmail.com",
+  email: "alkalineumarliman@gmail.com",
   phone: "+234 816 098 3789",
   whatsapp: "+234 812 657 3474",
   github: "https://github.com/alkama2022",
@@ -36,6 +40,7 @@ export const navLinks = [
   { label: "About", href: "/#about" },
   { label: "Skills", href: "/#skills" },
   { label: "Projects", href: "/projects" },
+  { label: "Services", href: "/#services" },
   { label: "Experience", href: "/#experience" },
   { label: "Contact", href: "/contact" },
   { label: "Blog", href: "/blog" },
@@ -45,6 +50,7 @@ export const quickLinks = [
   { label: "Home", href: "/" },
   { label: "About", href: "/#about" },
   { label: "Projects", href: "/projects" },
+  { label: "Services", href: "/#services" },
   { label: "Blog", href: "/blog" },
   { label: "Contact", href: "/contact" },
 ];
@@ -117,6 +123,107 @@ export const skillCategories: SkillCategory[] = [
       { name: "Entity Framework Core", level: 65, icon: DatabaseZap },
       { name: "SQL Server", level: 70, icon: Database },
     ],
+  },
+];
+
+export interface Service {
+  id: string;
+  name: string;
+  price: string;
+  description: string;
+  features: string[];
+  icon: LucideIcon;
+  interestSubject: string;
+}
+
+export const services: Service[] = [
+  {
+    id: "custom-web-app",
+    name: "Custom Web App",
+    price: "$1,500 – $3,000",
+    description:
+      "Complete custom web applications built with Django and React, including authentication, database integration, APIs, responsive interfaces, and production deployment.",
+    features: [
+      "Django",
+      "React",
+      "Authentication",
+      "Database",
+      "REST APIs",
+      "Responsive UI",
+      "Deployment",
+    ],
+    icon: AppWindow,
+    interestSubject: "I'm interested in a Custom Web App.",
+  },
+  {
+    id: "api-development",
+    name: "API Development",
+    price: "$500 – $1,200",
+    description:
+      "Secure and scalable REST APIs for web and mobile applications, built with Django REST Framework and designed for reliable frontend integration.",
+    features: [
+      "Django REST Framework",
+      "REST APIs",
+      "Authentication",
+      "Permissions",
+      "Database integration",
+      "API documentation",
+      "Production deployment",
+    ],
+    icon: Globe,
+    interestSubject: "I'm interested in API Development.",
+  },
+  {
+    id: "admin-dashboard",
+    name: "Admin Dashboard",
+    price: "$800 – $2,000",
+    description:
+      "Professional admin dashboards for managing data, users, business operations, analytics, and CRUD workflows.",
+    features: [
+      "Data management",
+      "Charts",
+      "Analytics",
+      "CRUD",
+      "Authentication",
+      "Role-based permissions",
+      "Responsive dashboard",
+    ],
+    icon: LayoutDashboard,
+    interestSubject: "I'm interested in an Admin Dashboard.",
+  },
+];
+
+export interface WhyWorkWithMeItem {
+  title: string;
+  description: string;
+  icon: LucideIcon;
+}
+
+export const whyWorkWithMe: WhyWorkWithMeItem[] = [
+  {
+    title: "Full-Stack Development",
+    description: "Frontend and backend development under one workflow.",
+    icon: Layers,
+  },
+  {
+    title: "API-First Architecture",
+    description: "Clean APIs designed for reliable integrations.",
+    icon: Workflow,
+  },
+  {
+    title: "Production Ready",
+    description: "Deployment, security, and performance considered from the beginning.",
+    icon: Rocket,
+  },
+  {
+    title: "Problem Solving",
+    description: "Focus on solving the actual business problem, not just writing code.",
+    icon: Lightbulb,
+  },
+  {
+    title: "Maintainable Code",
+    description: "Clean and scalable architecture that can grow with the project.",
+    icon: Braces,
   },
 ];
 
@@ -797,7 +904,7 @@ export const projects: Project[] = [
       "A responsive workspace for desktop, laptop, tablet, and mobile",
     ],
     image: "/images/project-unihub.jpg",
-    live: "",
+    live: "https://unihub-tj2z.vercel.app/",
     category: "EdTech",
     featured: true,
     caseStudy: {

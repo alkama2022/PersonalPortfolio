@@ -8,6 +8,8 @@ import { ProjectsSection } from "@/components/projects-section";
 import { ExperienceSection } from "@/components/experience-section";
 import { EducationSection } from "@/components/education-section";
 import { GitHubStatsSection } from "@/components/github-stats-section";
+import { ServicesSection } from "@/components/services-section";
+import { WhyWorkWithMeSection } from "@/components/why-work-with-me-section";
 import { ContactSection } from "@/components/contact-section";
 import { personalInfo } from "@/lib/data";
 
@@ -18,13 +20,13 @@ export const Route = createFileRoute("/")({
       {
         name: "description",
         content:
-          "Portfolio of Alkama Umar Liman, a backend and desktop developer building secure, scalable web and desktop applications.",
+          "Hire Alkama Umar Liman for Django and React development, REST API development, and admin dashboards. Full-stack web development services for custom web applications.",
       },
       { property: "og:title", content: `${personalInfo.name} — ${personalInfo.title}` },
       {
         property: "og:description",
         content:
-          "Portfolio of Alkama Umar Liman, a backend and desktop developer building secure, scalable web and desktop applications.",
+          "Hire Alkama Umar Liman for Django and React development, REST API development, and admin dashboards. Full-stack web development services for custom web applications.",
       },
       { property: "og:url", content: "/" },
     ],
@@ -44,6 +46,8 @@ function IndexPage() {
       <ExperienceSection />
       <EducationSection />
       <GitHubStatsSection />
+      <ServicesSection />
+      <WhyWorkWithMeSection />
       <ContactSection />
     </PageLayout>
   );
