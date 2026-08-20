@@ -782,6 +782,207 @@ export const projects: Project[] = [
       ],
     },
   },
+  {
+    id: "unihub",
+    title: "UniHub",
+    description:
+      "A university-focused platform designed to help students organize, manage, and collaborate on academic projects — from organizing work and resources to tracking progress and staying in sync with supervisors and teammates.",
+    technologies: ["React", "TypeScript", "Django", "Django REST Framework", "PostgreSQL"],
+    features: [
+      "Structured project workspaces for organizing academic project work",
+      "Centralized management of project resources, files, and references",
+      "Progress tracking across project work items and deliverables",
+      "Shared project views for collaboration with teammates and supervisors",
+      "Secure authentication with membership-based access to projects",
+      "A responsive workspace for desktop, laptop, tablet, and mobile",
+    ],
+    image: "/images/project-unihub.jpg",
+    live: "",
+    category: "EdTech",
+    featured: true,
+    caseStudy: {
+      summary:
+        "UniHub is a university-focused platform that helps students organize, manage, and collaborate on academic projects — a single structured workspace where project work, resources, progress, and communication live together.",
+      overview: [
+        {
+          label: "What it is",
+          text: "UniHub is a university-focused web platform designed to help students manage and work on their academic projects.",
+        },
+        {
+          label: "What it does",
+          text: "It gives students a structured workspace for organizing project work, managing resources, tracking progress, and collaborating with teammates and supervisors — instead of leaving those things spread across chats, email, and folders.",
+        },
+        {
+          label: "Who it is for",
+          text: "University students working on individual or group academic projects, along with the supervisors and teammates they collaborate with.",
+        },
+        {
+          label: "Main purpose",
+          text: "To give every academic project a single organized home — work, resources, progress, and communication — so students can focus on the project itself instead of managing the chaos around it.",
+        },
+        {
+          label: "Problem it addresses",
+          text: "Academic projects are information-heavy and collaborative, yet the tools students actually use — group chats, email, folders — have no structure for the project itself, so work, resources, and feedback get lost.",
+        },
+      ],
+      why: [
+        "UniHub came from an experience every university student knows: academic projects are where the real learning happens, and also where the most information gets lost.",
+        "A single project spans ideas, research, documents, tasks, and deadlines, and in practice it lives across group chats, email, and folders. Teammates and supervisors each hold a different piece of the picture, and none of it sits in one organized place.",
+        "The result is that students spend more time hunting for materials, reminding each other of tasks, and reconstructing what was decided than actually working on the project itself. Supervisors, meanwhile, can only see fragments of the work when they are asked about it.",
+        "The opportunity was to build a dedicated home for academic project work: a platform that treats a project as a structured thing — with work, resources, progress, and collaboration attached to it — rather than leaving it scattered across generic tools.",
+      ],
+      opportunity:
+        "A single structured workspace where every academic project has its work, resources, progress, and conversations organized in one place.",
+      problems: [
+        {
+          title: "Organizing project work and resources",
+          description:
+            "Tasks, documents, and research materials live in different places — chats, email, folders, drives — with no structure tying them to the project.",
+          consequence:
+            "Students lose track of what needs to be done and where materials are, duplicating effort and re-finding resources.",
+        },
+        {
+          title: "Disconnected collaboration with teammates and supervisors",
+          description:
+            "Coordination happens through separate conversations, with no shared view of the project for everyone involved.",
+          consequence:
+            "Teammates and supervisors are out of sync on progress, decisions, and next steps, and feedback is forgotten or misunderstood.",
+        },
+        {
+          title: "Finding useful academic information",
+          description:
+            "Useful academic material — references, guidelines, past work — is not collected or organized around the project.",
+          consequence:
+            "Students struggle to find and reuse information that would help them make progress, and knowledge is lost when the project ends.",
+        },
+        {
+          title: "No visibility into project progress",
+          description:
+            "There is no structured view of what has been done, what remains, and what is at risk of slipping.",
+          consequence:
+            "Deadlines are missed and problems are discovered late, close to submission, when there is little time to react.",
+        },
+      ],
+      solutions: [
+        {
+          problem: "Scattered project work and resources",
+          solution:
+            "Each academic project lives in a structured workspace where work items, files, and references are attached to the project itself, in one place.",
+          result:
+            "Everything a project needs has a home, so nothing is lost or recreated and students know exactly where to look.",
+        },
+        {
+          problem: "Disconnected collaboration",
+          solution:
+            "Shared project views keep teammates and supervisors on the same page, with updates and feedback attached to the project's record.",
+          result:
+            "Everyone involved sees the same state of the project, and feedback becomes part of the project's history instead of a lost message.",
+        },
+        {
+          problem: "Hard-to-find academic information",
+          solution:
+            "Useful academic material is collected and organized within the platform, tied to the projects it belongs to so it can be found and reused.",
+          result:
+            "Students spend less time re-finding information and more time working, and knowledge survives the end of the project.",
+        },
+        {
+          problem: "No visibility into progress",
+          solution:
+            "Progress is tracked against the project's structured work items, giving students, teammates, and supervisors a clear view of what is done and what remains.",
+          result:
+            "Deadlines are managed, and problems surface early — while there is still time to respond — instead of at submission.",
+        },
+      ],
+      howWeSolvedIt: [
+        "UniHub is built as a full-stack web application. The backend is a Django REST Framework API backed by PostgreSQL, and the frontend is a React and TypeScript application that consumes the API and renders the project workspace.",
+        "The data model centers on the academic project itself. A project is a first-class entity that carries its work items, resources, and progress state, so everything that belongs to a project is tied to one record rather than spread across disconnected tables. This is what keeps the workspace coherent: organize the data, and the interface organizes itself.",
+        "Authentication and access control are enforced at the API level. Students and supervisors sign in securely, and membership on a project determines who can view and update its work and resources. The frontend reflects what the server allows; it never decides access on its own.",
+        "Deployment keeps the application fast and independently scalable: the React frontend is deployed to Vercel, while the Django API runs as a separate serverless function. The two layers can be updated and scaled independently, and static assets are served from the CDN.",
+      ],
+      architecture: [
+        {
+          title: "Project-centric data model",
+          description:
+            "Academic projects are first-class entities carrying their work items, resources, and progress, so everything belonging to a project is stored and retrieved together.",
+        },
+        {
+          title: "REST API backend",
+          description:
+            "Django REST Framework exposes typed endpoints for authentication, projects, work items, resources, and progress, backed by PostgreSQL.",
+        },
+        {
+          title: "Membership-based access control",
+          description:
+            "Secure authentication with project membership checks on every project-scoped endpoint, so only the students and supervisors involved can access a project's data.",
+        },
+        {
+          title: "Full-stack web architecture",
+          description:
+            "A React and TypeScript frontend consumes the API and renders a responsive workspace, deployed on Vercel with the API as a separate serverless function.",
+        },
+      ],
+      techStack: [
+        { label: "Frontend", items: ["React", "TypeScript"] },
+        { label: "Backend", items: ["Django", "Django REST Framework"] },
+        { label: "Database", items: ["PostgreSQL"] },
+        { label: "API & Access", items: ["REST", "JWT Authentication"] },
+        { label: "Infrastructure", items: ["Vercel"] },
+      ],
+      challenges: [
+        {
+          title: "Modeling the project as a structured entity",
+          description:
+            "A project holds many kinds of information — work items, resources, progress, collaborators — and all of it had to live in one coherent structure that stays easy to query and update.",
+        },
+        {
+          title: "Enforcing membership and access control",
+          description:
+            "Project data is shared but private: access had to be limited to the students and supervisors involved in each project, and that boundary had to hold server-side.",
+        },
+        {
+          title: "Designing for organization and collaboration together",
+          description:
+            "The workspace had to help students organize work and resources while also keeping teammates and supervisors coordinated — without becoming a generic task tool.",
+        },
+        {
+          title: "Keeping progress honest",
+          description:
+            "The progress everyone sees had to reflect what is actually happening in the project, not a manually maintained number that drifts from reality.",
+        },
+      ],
+      overcoming: [
+        {
+          challenge: "Structured project model",
+          how: "The schema was designed around the project as the root entity, with work items, resources, and membership as related records. Every part of a project is reachable through one record, which keeps queries and updates straightforward.",
+        },
+        {
+          challenge: "Membership and access control",
+          how: "Permissions were enforced in the API layer with JWT authentication and membership checks on every project-scoped endpoint. Even if a client asked for data it should not see, the server would reject it.",
+        },
+        {
+          challenge: "Organization and collaboration in one workspace",
+          how: "The interface was built around the project itself — a workspace view that brings work items, resources, and collaboration together — using a responsive component system consistent across the platform.",
+        },
+        {
+          challenge: "Honest progress tracking",
+          how: "Progress is derived from the project's structured work items, so the status shown to teammates and supervisors reflects the same underlying data everyone works against.",
+        },
+      ],
+      results: [
+        "Students get one organized home for every academic project — work, resources, and progress in a single structured workspace.",
+        "Teammates and supervisors share the same view of a project, reducing miscommunication and keeping feedback attached to the project's record.",
+        "Useful academic information is collected and organized around projects, so it can be found and reused instead of rediscovered.",
+        "Progress is visible and trackable, so deadlines are managed and problems surface early rather than at submission time.",
+      ],
+      lessons: [
+        "Modeling the project as the central entity — rather than building disconnected features for each tool students use — is what kept the platform coherent.",
+        "Access control belongs in the API: JWT authentication and membership checks are the real boundary, and the frontend should only reflect it.",
+        "Progress is only useful when it derives from real, structured work items; anything else is guesswork.",
+        "A platform like this is only as good as how it organizes its data — structure is the product.",
+        "Deploying the frontend and API independently keeps iteration fast and each layer's failure domain separate.",
+      ],
+    },
+  },
 ];
 
 export const allTechnologies = Array.from(new Set(projects.flatMap((p) => p.technologies))).sort();
