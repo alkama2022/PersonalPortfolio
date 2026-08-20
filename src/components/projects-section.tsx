@@ -5,74 +5,39 @@ import { SectionHeader } from "@/components/section-header";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent, CardFooter, CardHeader } from "@/components/ui/card";
-import { ArrowUpRight, ExternalLink, Github } from "lucide-react";
+import { ArrowUpRight, ExternalLink } from "lucide-react";
 
 export function ProjectCard({ project }: { project: Project }) {
   const hasLive = project.live.startsWith("http");
-  const hasGithub = project.github.startsWith("http");
-  const imageHref = hasLive ? project.live : hasGithub ? project.github : "";
-  const imageTarget = hasLive ? project.live : project.github;
 
   return (
     <Card className="group flex h-full min-w-0 flex-col overflow-hidden border-border bg-surface transition-all hover:border-primary/30 hover:shadow-lg">
-      <div className="relative aspect-video w-full overflow-hidden bg-muted">
-        {imageHref ? (
-          <a
-            href={imageTarget}
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label={
-              hasLive ? `Open ${project.title} live demo` : `Open ${project.title} source on GitHub`
-            }
-            className="block h-full w-full"
-          >
-            <img
-              src={project.image}
-              alt={`${project.title} screenshot`}
-              className="h-full w-full min-w-0 object-cover transition-transform duration-500 group-hover:scale-105"
-              loading="lazy"
-              width={600}
-              height={340}
-            />
-          </a>
-        ) : (
-          <img
-            src={project.image}
-            alt={`${project.title} screenshot`}
-            className="h-full w-full min-w-0 object-cover"
-            loading="lazy"
-            width={600}
-            height={340}
-          />
-        )}
+      <Link
+        to="/projects/$projectId"
+        params={{ projectId: project.id }}
+        className="relative block aspect-video w-full overflow-hidden bg-muted"
+        aria-label={`Read the ${project.title} case study`}
+      >
+        <img
+          src={project.image}
+          alt={`${project.title} screenshot`}
+          className="h-full w-full min-w-0 object-cover transition-transform duration-500 group-hover:scale-105"
+          loading="lazy"
+          width={600}
+          height={340}
+        />
         <div
           aria-hidden="true"
           className="pointer-events-none absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-primary/10 to-transparent transition-transform duration-700 ease-out group-hover:translate-x-full"
         />
-        {(hasLive || hasGithub) && (
-          <>
-            <div className="absolute inset-0 hidden bg-gradient-to-t from-background/80 to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100 sm:block" />
-            <div className="absolute bottom-0 left-0 right-0 flex translate-y-0 gap-2 p-4 transition-transform duration-300 sm:translate-y-full sm:group-hover:translate-y-0">
-              {hasLive && (
-                <Button size="sm" variant="secondary" className="flex-1" asChild>
-                  <a href={project.live} target="_blank" rel="noopener noreferrer">
-                    <ExternalLink className="mr-2 h-4 w-4" />
-                    Live Demo
-                  </a>
-                </Button>
-              )}
-              {hasGithub && (
-                <Button size="sm" variant="secondary" className="flex-1" asChild>
-                  <a href={project.github} target="_blank" rel="noopener noreferrer">
-                    <Github className="mr-2 h-4 w-4" />
-                    GitHub
-                  </a>
-                </Button>
-              )}
-            </div>
-          </>
-        )}
-      </div>
+        <div className="absolute inset-0 hidden bg-gradient-to-t from-background/80 to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100 sm:block" />
+        <div className="absolute bottom-0 left-0 right-0 flex translate-y-0 justify-center p-4 transition-transform duration-300 sm:translate-y-full sm:group-hover:translate-y-0">
+          <span className="inline-flex items-center gap-1.5 rounded-md bg-background/95 px-3 py-1.5 text-xs font-medium text-foreground shadow-sm">
+            Read case study
+            <ArrowUpRight className="h-3.5 w-3.5" />
+          </span>
+        </div>
+      </Link>
       <CardHeader className="pb-2">
         <div className="flex items-start justify-between gap-2">
           <h3 className="font-heading text-lg font-semibold text-foreground line-clamp-1">
@@ -98,10 +63,18 @@ export function ProjectCard({ project }: { project: Project }) {
           )}
         </div>
       </CardContent>
-      <CardFooter className="pt-0">
-        <Button variant="ghost" size="sm" className="px-0 text-primary hover:text-primary" asChild>
+      <CardFooter className="gap-2 pt-0">
+        {hasLive && (
+          <Button variant="outline" size="sm" className="flex-1" asChild>
+            <a href={project.live} target="_blank" rel="noopener noreferrer">
+              <ExternalLink className="mr-2 h-4 w-4" />
+              Live Demo
+            </a>
+          </Button>
+        )}
+        <Button size="sm" className={hasLive ? "flex-1" : "w-full"} asChild>
           <Link to="/projects/$projectId" params={{ projectId: project.id }}>
-            View Details
+            Case Study
             <ArrowUpRight className="ml-1 h-4 w-4" />
           </Link>
         </Button>

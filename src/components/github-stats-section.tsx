@@ -16,12 +16,13 @@ const statStyles = [
 const languageColors = ["#3b82f6", "#e85d3a", "#fbbf24", "#10b981", "#8b5cf6", "#14b8a6"];
 
 export function GitHubStatsSection() {
-  const { data: stats } = useQuery({
+  const { data } = useQuery({
     queryKey: ["github-stats"],
     queryFn: getGitHubStats,
     placeholderData: FALLBACK_GITHUB_STATS,
     staleTime: 6 * 60 * 60 * 1000,
   });
+  const stats = data ?? FALLBACK_GITHUB_STATS;
 
   const cards = [
     { label: "Public Repositories", value: stats.publicRepos },
