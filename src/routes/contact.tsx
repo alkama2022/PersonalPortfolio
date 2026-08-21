@@ -1,6 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { z } from "zod";
-import { services } from "@/lib/data";
+import { services, siteUrl } from "@/lib/data";
 import { ContactSection } from "@/components/contact-section";
 import { PageLayout } from "@/components/page-layout";
 
@@ -22,9 +22,9 @@ export const Route = createFileRoute("/contact")({
         content:
           "Get in touch with Alkama Umar Liman for Django development, React development, REST APIs, admin dashboards, and custom web applications.",
       },
-      { property: "og:url", content: "/contact" },
+      { property: "og:url", content: `${siteUrl}/contact` },
     ],
-    links: [{ rel: "canonical", href: "/contact" }],
+    links: [{ rel: "canonical", href: `${siteUrl}/contact` }],
   }),
   component: ContactRoute,
 });

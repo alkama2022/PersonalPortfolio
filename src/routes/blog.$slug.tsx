@@ -1,5 +1,5 @@
 import { createFileRoute, Link, notFound } from "@tanstack/react-router";
-import { blogPosts } from "@/lib/data";
+import { blogPosts, siteUrl } from "@/lib/data";
 import { PageLayout } from "@/components/page-layout";
 import { Badge } from "@/components/ui/badge";
 import { Calendar, Clock, ArrowLeft } from "lucide-react";
@@ -29,9 +29,10 @@ export const Route = createFileRoute("/blog/$slug")({
         { property: "og:title", content: `${post.title} — Alkama Umar Liman` },
         { property: "og:description", content: post.excerpt },
         { property: "og:type", content: "article" },
-        { property: "og:url", content: `/blog/${post.slug}` },
+        { property: "og:url", content: `${siteUrl}/blog/${post.slug}` },
+        { property: "og:image", content: `${siteUrl}/images/og-image.jpg` },
       ],
-      links: [{ rel: "canonical", href: `/blog/${post.slug}` }],
+      links: [{ rel: "canonical", href: `${siteUrl}/blog/${post.slug}` }],
     };
   },
   component: BlogPostPage,

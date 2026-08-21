@@ -3,7 +3,7 @@ import { projects, allTechnologies, allCategories } from "@/lib/data";
 import { ProjectCard } from "@/components/projects-section";
 import { SectionHeader } from "@/components/section-header";
 import { Input } from "@/components/ui/input";
-import { Badge } from "@/components/ui/badge";
+import { badgeVariants } from "@/components/ui/badge";
 import { ScrollReveal } from "@/components/scroll-reveal";
 import { Search, X } from "lucide-react";
 
@@ -59,43 +59,55 @@ export function ProjectsPage() {
           <div className="space-y-3">
             <div className="flex flex-wrap items-center gap-2">
               <span className="text-sm font-medium text-muted-foreground">Category:</span>
-              <Badge
-                variant={selectedCategory === null ? "default" : "outline"}
-                className="cursor-pointer"
+              <button
+                type="button"
+                aria-pressed={selectedCategory === null}
+                className={badgeVariants({
+                  variant: selectedCategory === null ? "default" : "outline",
+                })}
                 onClick={() => setSelectedCategory(null)}
               >
                 All
-              </Badge>
+              </button>
               {allCategories.map((category) => (
-                <Badge
+                <button
                   key={category}
-                  variant={selectedCategory === category ? "default" : "outline"}
-                  className="cursor-pointer"
+                  type="button"
+                  aria-pressed={selectedCategory === category}
+                  className={badgeVariants({
+                    variant: selectedCategory === category ? "default" : "outline",
+                  })}
                   onClick={() => setSelectedCategory(category)}
                 >
                   {category}
-                </Badge>
+                </button>
               ))}
             </div>
 
             <div className="flex flex-wrap items-center gap-2">
               <span className="text-sm font-medium text-muted-foreground">Technology:</span>
-              <Badge
-                variant={selectedTech === null ? "default" : "outline"}
-                className="cursor-pointer"
+              <button
+                type="button"
+                aria-pressed={selectedTech === null}
+                className={badgeVariants({
+                  variant: selectedTech === null ? "default" : "outline",
+                })}
                 onClick={() => setSelectedTech(null)}
               >
                 All
-              </Badge>
+              </button>
               {allTechnologies.map((tech) => (
-                <Badge
+                <button
                   key={tech}
-                  variant={selectedTech === tech ? "default" : "outline"}
-                  className="cursor-pointer"
+                  type="button"
+                  aria-pressed={selectedTech === tech}
+                  className={badgeVariants({
+                    variant: selectedTech === tech ? "default" : "outline",
+                  })}
                   onClick={() => setSelectedTech(tech)}
                 >
                   {tech}
-                </Badge>
+                </button>
               ))}
             </div>
           </div>

@@ -11,7 +11,7 @@ import { GitHubStatsSection } from "@/components/github-stats-section";
 import { ServicesSection } from "@/components/services-section";
 import { WhyWorkWithMeSection } from "@/components/why-work-with-me-section";
 import { ContactSection } from "@/components/contact-section";
-import { personalInfo } from "@/lib/data";
+import { personalInfo, siteUrl } from "@/lib/data";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -28,9 +28,9 @@ export const Route = createFileRoute("/")({
         content:
           "Hire Alkama Umar Liman for Django and React development, REST API development, and admin dashboards. Full-stack web development services for custom web applications.",
       },
-      { property: "og:url", content: "/" },
+      { property: "og:url", content: `${siteUrl}/` },
     ],
-    links: [{ rel: "canonical", href: "/" }],
+    links: [{ rel: "canonical", href: `${siteUrl}/` }],
   }),
   component: IndexPage,
 });

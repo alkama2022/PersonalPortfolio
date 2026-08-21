@@ -1,2 +1,4 @@
 User-agent: *
 Allow: /
+
+Sitemap: https://personal-portfolio-mevs-me.vercel.app/sitemap.xml

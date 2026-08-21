@@ -1,6 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import type {} from "@tanstack/react-start";
-import { blogPosts, projects } from "@/lib/data";
+import { blogPosts, projects, siteUrl } from "@/lib/data";
 
 // Site URL used for absolute sitemap URLs. Override via SITE_URL env var
 // (Vercel sets VERCEL_PROJECT_PRODUCTION_URL for the deployment domain).
@@ -8,7 +8,7 @@ const BASE_URL =
   process.env.SITE_URL ??
   (process.env.VERCEL_PROJECT_PRODUCTION_URL
     ? `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}`
-    : "https://alkamaumar.dev");
+    : siteUrl);
 
 interface SitemapEntry {
   path: string;

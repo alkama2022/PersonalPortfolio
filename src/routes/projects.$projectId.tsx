@@ -1,5 +1,5 @@
 import { createFileRoute, notFound } from "@tanstack/react-router";
-import { projects } from "@/lib/data";
+import { projects, siteUrl } from "@/lib/data";
 import { PageLayout } from "@/components/page-layout";
 import { CaseStudyPage } from "@/components/case-study-page";
 
@@ -28,10 +28,10 @@ export const Route = createFileRoute("/projects/$projectId")({
         { property: "og:title", content: `${project.title} — Case Study — Alkama Umar Liman` },
         { property: "og:description", content: project.caseStudy.summary },
         { property: "og:type", content: "article" },
-        { property: "og:url", content: `/projects/${project.id}` },
-        { property: "og:image", content: project.image },
+        { property: "og:url", content: `${siteUrl}/projects/${project.id}` },
+        { property: "og:image", content: `${siteUrl}${project.image}` },
       ],
-      links: [{ rel: "canonical", href: `/projects/${project.id}` }],
+      links: [{ rel: "canonical", href: `${siteUrl}/projects/${project.id}` }],
     };
   },
   component: ProjectDetailPage,

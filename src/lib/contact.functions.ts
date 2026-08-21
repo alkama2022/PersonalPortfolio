@@ -1,4 +1,5 @@
 import { createServerFn } from "@tanstack/react-start";
+import { getRequest, getRequestIP } from "@tanstack/react-start/server";
 import { z } from "zod";
 
 const contactSchema = z.object({
@@ -6,7 +7,43 @@ const contactSchema = z.object({
   email: z.string().trim().email().max(255),
   subject: z.string().trim().min(2).max(150),
   message: z.string().trim().min(10).max(1000),
+  // Honeypot: real users never fill this in.
+  website: z.string().optional(),
 });
+
+// Best-effort in-memory sliding-window rate limiter. On serverless each
+// instance has its own memory, so this is a throttle rather than a hard
+// global limit, but it still blunts automated abuse cheaply.
+const RATE_LIMIT_WINDOW_MS = 60 * 60 * 1000;
+const RATE_LIMIT_MAX_REQUESTS = 5;
+const rateLimits = new Map<string, number[]>();
+
+function pruneRateLimits(now: number) {
+  for (const [ip, timestamps] of rateLimits) {
+    const recent = timestamps.filter((t) => now - t < RATE_LIMIT_WINDOW_MS);
+    if (recent.length === 0) {
+      rateLimits.delete(ip);
+    } else {
+      rateLimits.set(ip, recent);
+    }
+  }
+}
+
+function isRateLimited(ip: string) {
+  const now = Date.now();
+  if (rateLimits.size > 10_000) pruneRateLimits(now);
+
+  const timestamps = (rateLimits.get(ip) ?? []).filter(
+    (t) => now - t < RATE_LIMIT_WINDOW_MS,
+  );
+  if (timestamps.length >= RATE_LIMIT_MAX_REQUESTS) {
+    rateLimits.set(ip, timestamps);
+    return true;
+  }
+  timestamps.push(now);
+  rateLimits.set(ip, timestamps);
+  return false;
+}
 
 /**
  * Contact form server function.
@@ -19,6 +56,21 @@ const contactSchema = z.object({
 export const sendContactMessage = createServerFn({ method: "POST" })
   .validator((data) => contactSchema.parse(data))
   .handler(async ({ data }) => {
+    // Honeypot filled: pretend success so bots don't learn anything.
+    if (data.website && data.website.length > 0) {
+      return { success: true };
+    }
+
+    const ip =
+      getRequestIP({ xForwardedFor: true }) ??
+      getRequest().headers.get("x-real-ip") ??
+      "unknown";
+
+    if (isRateLimited(ip)) {
+      console.warn(`[Contact Form] Rate limit hit for ${ip}`);
+      return { success: false, reason: "RATE_LIMITED" };
+    }
+
     const apiKey = process.env.RESEND_API_KEY;
     if (!apiKey) {
       return { success: false, reason: "EMAIL_NOT_CONFIGURED" };

@@ -16,6 +16,13 @@ dist-ssr
 .nitro
 *.local
 
+# Environment
+.env
+.env.*
+
+# Server files
+*.pid
+
 # Vercel
 .vercel
 

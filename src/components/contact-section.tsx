@@ -36,6 +36,7 @@ const contactSchema = z.object({
     .trim()
     .min(10, "Message must be at least 10 characters")
     .max(1000, "Message must be less than 1000 characters"),
+  website: z.string().max(0).optional(),
 });
 
 type ContactForm = z.infer<typeof contactSchema>;
@@ -60,6 +61,7 @@ export function ContactSection({ defaultSubject }: ContactSectionProps) {
       email: "",
       subject: defaultSubject ?? "",
       message: "",
+      website: "",
     },
   });
 
@@ -70,6 +72,8 @@ export function ContactSection({ defaultSubject }: ContactSectionProps) {
       if (result.success) {
         toast.success("Message sent successfully! I'll get back to you soon.");
         reset();
+      } else if (result.reason === "RATE_LIMITED") {
+        toast.error("Too many messages sent. Please try again later.");
       } else {
         openMailClient(data);
         toast.info(
@@ -243,6 +247,14 @@ export function ContactSection({ defaultSubject }: ContactSectionProps) {
                       <p className="text-xs text-destructive">{errors.message.message}</p>
                     )}
                   </div>
+                  <input
+                    type="text"
+                    tabIndex={-1}
+                    autoComplete="off"
+                    aria-hidden="true"
+                    className="hidden"
+                    {...register("website")}
+                  />
                   <Button
                     type="submit"
                     size="lg"

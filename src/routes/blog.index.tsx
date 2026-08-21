@@ -1,5 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { BlogPage } from "@/components/blog-page";
+import { siteUrl } from "@/lib/data";
 
 export const Route = createFileRoute("/blog/")({
   head: () => ({
@@ -16,9 +17,9 @@ export const Route = createFileRoute("/blog/")({
         content:
           "Articles and tutorials by Alkama Umar Liman on Django, Python backend development, APIs, and databases.",
       },
-      { property: "og:url", content: "/blog" },
+      { property: "og:url", content: `${siteUrl}/blog` },
     ],
-    links: [{ rel: "canonical", href: "/blog" }],
+    links: [{ rel: "canonical", href: `${siteUrl}/blog` }],
   }),
   component: BlogIndex,
 });

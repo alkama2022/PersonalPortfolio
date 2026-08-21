@@ -1,5 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { ProjectsPage } from "@/components/projects-page";
+import { siteUrl } from "@/lib/data";
 
 export const Route = createFileRoute("/projects/")({
   head: () => ({
@@ -16,9 +17,9 @@ export const Route = createFileRoute("/projects/")({
         content:
           "Browse the full project portfolio of Alkama Umar Liman, including backend systems, Django APIs, and full-stack applications.",
       },
-      { property: "og:url", content: "/projects" },
+      { property: "og:url", content: `${siteUrl}/projects` },
     ],
-    links: [{ rel: "canonical", href: "/projects" }],
+    links: [{ rel: "canonical", href: `${siteUrl}/projects` }],
   }),
   component: ProjectsIndex,
 });
