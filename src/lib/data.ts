@@ -904,7 +904,7 @@ export const projects: Project[] = [
       "A responsive workspace for desktop, laptop, tablet, and mobile",
     ],
     image: "/images/project-unihub.jpg",
-    live: "https://unihub-tj2z.vercel.app/",
+    live: "https://unihub-mevs-me.vercel.app/",
     category: "EdTech",
     featured: true,
     caseStudy: {
