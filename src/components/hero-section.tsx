@@ -105,7 +105,7 @@ export function HeroSection() {
             <div className="absolute -inset-4 rounded-2xl bg-gradient-to-br from-primary/20 to-ember/20 blur-2xl" />
             <div className="relative aspect-square w-72 overflow-hidden rounded-2xl border border-border bg-surface shadow-2xl md:w-80 lg:w-96">
               <img
-                src="/images/profile.jpg"
+                src="/images/profile-pic.png"
                 alt={`${personalInfo.name} professional portrait`}
                 className="h-full w-full min-w-0 object-cover"
                 loading="eager"
