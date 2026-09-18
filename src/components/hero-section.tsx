@@ -114,7 +114,7 @@ export function HeroSection() {
                 <img
                   src="/images/profile-pic.png"
                   alt={`${personalInfo.name} professional portrait`}
-                  className="h-full w-full min-w-0 object-cover object-[center_18%] scale-[1.02]"
+                  className="h-full w-full min-w-0 object-cover object-[center_22%] scale-[1.03]"
                   loading="eager"
                   decoding="async"
                   width={400}
