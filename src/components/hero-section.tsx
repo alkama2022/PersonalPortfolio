@@ -102,16 +102,27 @@ export function HeroSection() {
           className="relative flex min-w-0 justify-center lg:justify-end"
         >
           <div className="relative">
-            <div className="absolute -inset-4 rounded-2xl bg-gradient-to-br from-primary/20 to-ember/20 blur-2xl" />
-            <div className="relative aspect-square w-72 overflow-hidden rounded-2xl border border-border bg-surface shadow-2xl md:w-80 lg:w-96">
-              <img
-                src="/images/profile-pic.png"
-                alt={`${personalInfo.name} professional portrait`}
-                className="h-full w-full min-w-0 object-cover"
-                loading="eager"
-                width={384}
-                height={384}
-              />
+            <div className="absolute -inset-5 rounded-[2rem] bg-gradient-to-br from-primary/25 via-primary/15 to-ember/20 blur-2xl" />
+            <div className="absolute -inset-3 rounded-[2rem] bg-gradient-to-br from-primary/10 to-ember/10 blur-xl" />
+            <div className="relative aspect-square w-72 overflow-hidden rounded-3xl border border-border/60 bg-surface shadow-2xl ring-1 ring-border/50 md:w-80 lg:w-96">
+              <picture>
+                <source
+                  srcSet="/images/profile-pic-400.webp 400w, /images/profile-pic.webp 800w"
+                  sizes="(max-width: 768px) 288px, (max-width: 1024px) 320px, 384px"
+                  type="image/webp"
+                />
+                <img
+                  src="/images/profile-pic.png"
+                  alt={`${personalInfo.name} professional portrait`}
+                  className="h-full w-full min-w-0 object-cover object-[center_18%] scale-[1.02]"
+                  loading="eager"
+                  decoding="async"
+                  width={400}
+                  height={400}
+                />
+              </picture>
+              <div className="pointer-events-none absolute inset-0 rounded-3xl shadow-[inset_0_1px_0_0_rgba(255,255,255,0.6),inset_0_-1px_12px_rgba(29,78,216,0.07)] dark:shadow-[inset_0_1px_0_0_rgba(255,255,255,0.08)]" />
+              <div className="pointer-events-none absolute inset-0 rounded-3xl bg-gradient-to-t from-primary/[0.04] via-transparent to-transparent" />
             </div>
             <div className="absolute -bottom-4 -left-4 rounded-lg border border-border bg-background p-3 shadow-lg md:p-4">
               <div className="font-heading text-2xl font-bold text-foreground">
