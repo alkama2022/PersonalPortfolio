@@ -1090,6 +1090,205 @@ export const projects: Project[] = [
       ],
     },
   },
+  {
+    id: "enviromenthub",
+    title: "EnvironmentHub",
+    description:
+      "A community-driven environmental platform for tracking, reporting, and promoting sustainability initiatives — from clean-up events and tree planting to waste reporting and awareness campaigns — connecting volunteers, organizations, and communities.",
+    technologies: ["React", "TypeScript", "Tailwind CSS", "Vite"],
+    features: [
+      "Community feed for environmental initiatives and campaigns",
+      "Event management for clean-ups, tree planting, and awareness drives",
+      "Environmental reporting with location and photo evidence",
+      "Volunteer participation and contribution tracking",
+      "Organization and community dashboards",
+      "Responsive, mobile-first experience",
+    ],
+    image: "/images/project-enviromenthub.jpg",
+    live: "https://enviromenthub-git-main-mevs-me.vercel.app/",
+    category: "Sustainability",
+    featured: true,
+    caseStudy: {
+      summary:
+        "EnvironmentHub is a community-driven environmental platform that connects volunteers, organizations, and communities around sustainability — making it easy to discover initiatives, join events, report environmental issues, and track collective impact.",
+      overview: [
+        {
+          label: "What it is",
+          text: "EnvironmentHub is a community-driven environmental platform designed to connect volunteers, organizations, and communities around sustainability initiatives, clean-up events, and environmental awareness.",
+        },
+        {
+          label: "What it does",
+          text: "It lets users discover and join environmental events, report local environmental issues with location and photos, follow organizations and campaigns, and track community contributions toward a cleaner environment.",
+        },
+        {
+          label: "Who it is for",
+          text: "Volunteers, environmental organizations, NGOs, students, and community members who want to participate in or organize sustainability efforts.",
+        },
+        {
+          label: "Main purpose",
+          text: "To centralize environmental action in one place — turning scattered individual efforts into visible, coordinated community impact.",
+        },
+        {
+          label: "Problem it addresses",
+          text: "Environmental volunteering and reporting are fragmented across chats, social media, and word of mouth, making it hard to find opportunities, coordinate action, and show impact.",
+        },
+      ],
+      why: [
+        "Environmental action often starts with good intent but stalls on coordination: a clean-up is announced in a WhatsApp group, a dumping site is complained about on social media, and a tree-planting drive is known only to its organizers.",
+        "Volunteers who want to help do not know where to look. Organizations that run initiatives struggle to reach beyond their immediate network. And communities have no shared record of what has been done or what still needs attention.",
+        "The result is that effort is duplicated in some places and absent in others, and the collective impact of many small actions remains invisible.",
+        "The opportunity was to build a hub that makes environmental action discoverable and participatory — a single place where anyone can find an event to join, report an issue to address, and see the progress their community is making.",
+      ],
+      opportunity:
+        "A single hub where environmental initiatives, events, reports, and volunteers are connected — making action discoverable, participation easy, and impact visible.",
+      problems: [
+        {
+          title: "Fragmented environmental efforts",
+          description:
+            "Initiatives and volunteer opportunities were shared through disconnected channels — chats, social posts, and word of mouth — with no central place to find them.",
+          consequence:
+            "Volunteers missed opportunities to help, and organizations could not reach the wider community beyond their own network.",
+        },
+        {
+          title: "No structured way to report issues",
+          description:
+            "Local environmental issues like illegal dumping or pollution were reported informally without location, photos, or a follow-up workflow.",
+          consequence:
+            "Reports were easy to ignore and hard to act on, with no record of whether an issue was addressed.",
+        },
+        {
+          title: "Invisible collective impact",
+          description:
+            "Community contributions — clean-ups completed, trees planted, waste collected — were not tracked or showcased in one place.",
+          consequence:
+            "Motivation faded because volunteers could not see the difference their efforts made together.",
+        },
+        {
+          title: "Poor coordination between volunteers and organizers",
+          description:
+            "Organizers and volunteers had no shared workspace for events, sign-ups, and updates.",
+          consequence:
+            "Events were under-attended or over-subscribed, and communication depended on scattered messages.",
+        },
+      ],
+      solutions: [
+        {
+          problem: "Fragmented environmental efforts",
+          solution:
+            "A community feed and event directory centralize initiatives and campaigns, with search and filtering so anyone can find relevant opportunities nearby.",
+          result:
+            "Volunteers discover events and organizations beyond their immediate circle, and organizers reach a broader audience.",
+        },
+        {
+          problem: "No structured way to report issues",
+          solution:
+            "A guided reporting flow captures issue type, description, GPS location, and photo evidence, creating a structured record that organizations can triage.",
+          result:
+            "Reports become actionable data instead of informal complaints, with a clear path from report to response.",
+        },
+        {
+          problem: "Invisible collective impact",
+          solution:
+            "Contribution tracking and community dashboards surface participation, events completed, and environmental outcomes in one view.",
+          result:
+            "Volunteers see the tangible results of their collective action, which sustains engagement.",
+        },
+        {
+          problem: "Poor coordination between volunteers and organizers",
+          solution:
+            "Event management with participation handling gives organizers a single place to publish events and volunteers a simple way to join and stay updated.",
+          result:
+            "Events are coordinated through one system rather than scattered messages, improving attendance and follow-through.",
+        },
+      ],
+      howWeSolvedIt: [
+        "EnvironmentHub is built as a modern web application with a React and TypeScript frontend styled with Tailwind CSS and powered by Vite for fast development and builds.",
+        "The frontend is organized around community and action: a discovery feed for initiatives, event detail and participation flows, a reporting workspace for environmental issues, and dashboards for organizations and volunteers to track activity.",
+        "The interface was designed mobile-first, recognizing that volunteers and community members will often access the platform from their phones in the field. Screens are lightweight, task-focused, and optimized for quick reporting and event discovery.",
+        "Deployment is on Vercel, giving the application fast edge delivery, automatic previews, and independent scaling of the frontend. The live deployment is available at https://enviromenthub-git-main-mevs-me.vercel.app/.",
+      ],
+      architecture: [
+        {
+          title: "Community-centric architecture",
+          description:
+            "Initiatives, events, reports, and users are modeled as connected entities, so discovery, participation, and impact all read from the same community graph.",
+        },
+        {
+          title: "Event-driven participation",
+          description:
+            "Events are first-class records with participation state, enabling organizers to manage sign-ups and volunteers to track their involvement.",
+        },
+        {
+          title: "Structured environmental reporting",
+          description:
+            "Reports carry typed fields — category, location, photos, and status — so an informal observation becomes a trackable community issue.",
+        },
+        {
+          title: "Mobile-first frontend",
+          description:
+            "A React, TypeScript, and Tailwind CSS application built with Vite, designed for phones and field use, deployed on Vercel.",
+        },
+      ],
+      techStack: [
+        { label: "Frontend", items: ["React", "TypeScript", "Vite"] },
+        { label: "Styling", items: ["Tailwind CSS"] },
+        { label: "Infrastructure", items: ["Vercel"] },
+      ],
+      challenges: [
+        {
+          title: "Making environmental action discoverable",
+          description:
+            "Initiatives and events needed to be findable beyond an organizer's immediate network, without creating a noisy, unfocused feed.",
+        },
+        {
+          title: "Designing a useful reporting flow",
+          description:
+            "Reporting had to be quick enough to use in the field while still capturing enough structure — type, location, evidence — to be actionable.",
+        },
+        {
+          title: "Balancing community and organization needs",
+          description:
+            "Volunteers and organizations use the platform differently, but both need to see the same underlying community activity.",
+        },
+        {
+          title: "Mobile-first field use",
+          description:
+            "The platform had to remain fast and usable on phones with weak connectivity, where much of the reporting and participation happens.",
+        },
+      ],
+      overcoming: [
+        {
+          challenge: "Discoverability",
+          how: "Discovery was built around a filtered feed and event directory rather than a generic timeline, so users can narrow by location, category, and recency to find what matters to them.",
+        },
+        {
+          challenge: "Reporting flow",
+          how: "The flow was kept to essential fields — what, where, and evidence — with GPS and photo capture prioritized, so a report can be completed in under a minute in the field.",
+        },
+        {
+          challenge: "Volunteers and organizations together",
+          how: "The data model treats initiatives and events as shared records, with volunteers as participants and organizations as publishers, so both perspectives are views over the same data.",
+        },
+        {
+          challenge: "Mobile field use",
+          how: "Screens were kept lean with minimal assets, responsive layouts, and task-focused flows, ensuring the reporting and event-joining paths work well on small screens and slow networks.",
+        },
+      ],
+      results: [
+        "A single hub where community members can discover initiatives, join environmental events, and report local issues through one consistent interface.",
+        "Structured, location-aware environmental reports that give organizations actionable data instead of informal complaints.",
+        "Improved coordination for event organizers, with participation managed in one place rather than across chat groups.",
+        "Visible community impact through contribution tracking, helping sustain volunteer motivation and organizational credibility.",
+      ],
+      lessons: [
+        "Discoverability is the core feature for a community platform — if people cannot find the action, they cannot join it.",
+        "A short, structured reporting flow is worth more than a long, detailed one that no one completes in the field.",
+        "Modeling events and reports as shared records keeps volunteer and organizer views consistent without duplicating data.",
+        "Mobile-first design is essential for environmental platforms where much of the use happens on the go.",
+        "Deploying on Vercel keeps the frontend fast and iteration quick, with previews and edge delivery built in.",
+      ],
+    },
+  },
 ];
 
 export const allTechnologies = Array.from(new Set(projects.flatMap((p) => p.technologies))).sort();
