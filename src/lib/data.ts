@@ -1092,17 +1092,19 @@ export const projects: Project[] = [
   },
   {
     id: "enviromenthub",
-    title: "EnvironmentHub",
+    title: "EnvironmentHub (TerraLensHub)",
     description:
-      "A community-driven environmental platform for tracking, reporting, and promoting sustainability initiatives — from clean-up events and tree planting to waste reporting and awareness campaigns — connecting volunteers, organizations, and communities.",
-    technologies: ["React", "TypeScript", "Tailwind CSS", "Vite"],
+      "Place-intelligence platform for Nigeria — 10-category location scores (safety, healthcare, climate, business, infrastructure, environment, transport, education, economy, tourism), a Personal Decision Assistant that re-weights scores by intent, and ethical, people-never-profiled environmental & government intelligence. Live at enviromenthub-tvuv.vercel.app.",
+    technologies: ["React 19", "TypeScript", "TanStack Router/Start", "Tailwind CSS", "Vite", "OpenStreetMap", "Web Speech API", "Vercel"],
     features: [
-      "Community feed for environmental initiatives and campaigns",
-      "Event management for clean-ups, tree planting, and awareness drives",
-      "Environmental reporting with location and photo evidence",
-      "Volunteer participation and contribution tracking",
-      "Organization and community dashboards",
-      "Responsive, mobile-first experience",
+      "10-category location scoring (0-100) with overall weighted score and plain-language What/Why/What-to-do explanations",
+      "Ask Hub / Discover — natural-language & voice input (Tap to speak), intent-aware Personal Decision Assistant that re-weights the same 10 scores by goal (business, health, live, etc.)",
+      "Rich location pages (Wuse 2, Sabon Gari, Ikeja, Enugu, Port Harcourt) with OpenStreetMap, weather/air/water/flood/green-cover/waste key facts, category scores, and transparent source + date + verified/estimated/community labels",
+      "Compare up to 3 locations side-by-side — category profile overlay, score-by-category table, key facts (population, hospitals, schools, businesses, cost, rent, 4G/5G) with share link, CSV export & print/PDF",
+      "Government Intelligence Dashboard — aggregated-only monitoring (5 locations, 11 flagged areas, 2,376 reports) with national map, flagged areas, incident trends (last 6 months) & breakdown by type",
+      "Offline-friendly issue reporting (Infrastructure/Environment/Safety/Healthcare/Transportation + description, queued locally & sent when online), Saved locations, alerts, and demo-data transparency banner",
+      "Multilingual (English, Hausa, Yorùbá, Igbo, Pidgin) + voice + read-aloud, Easy Mode, 8 quick-action cards (Check a Place, Healthcare, Route, Business, Live, Environment, Emergency, Ask)",
+      "Mobile-first, accessible UI with sticky header, bottom nav, and fast edge delivery on Vercel",
     ],
     image: "/images/project-enviromenthub.png",
     live: "https://enviromenthub-tvuv.vercel.app/",
@@ -1110,182 +1112,184 @@ export const projects: Project[] = [
     featured: true,
     caseStudy: {
       summary:
-        "EnvironmentHub is a community-driven environmental platform that connects volunteers, organizations, and communities around sustainability — making it easy to discover initiatives, join events, report environmental issues, and track collective impact.",
+        "EnvironmentHub (branded TerraLensHub in-app) is a Nigerian place-intelligence platform — not a volunteer-event network. It answers 'What do you want to know about this place?' with 10 scored categories, a goal-aware assistant that re-weights those same scores, rich location dossiers, side-by-side comparison, and a government dashboard for aggregated environmental & incident patterns — ethically built to analyse places, never people, with every datapoint sourced and dated.",
       overview: [
         {
           label: "What it is",
-          text: "EnvironmentHub is a community-driven environmental platform designed to connect volunteers, organizations, and communities around sustainability initiatives, clean-up events, and environmental awareness.",
+          text: "EnvironmentHub / TerraLensHub — a place-intelligence web app (live at https://enviromenthub-tvuv.vercel.app/) that turns dispersed geographic, environmental and public-service data into a single 0–100 score per location across 10 categories, plus an Overall Environment Score weighted across all 10.",
         },
         {
           label: "What it does",
-          text: "It lets users discover and join environmental events, report local environmental issues with location and photos, follow organizations and campaigns, and track community contributions toward a cleaner environment.",
+          text: "Lets anyone search or speak a question (voice input + 5 languages + read-aloud), get an intent-aware answer via the Personal Decision Assistant (same data, different weights for health vs business vs live vs emergency), drill into a location dossier (OpenStreetMap + 10 category explanations + key facts + weather/air/flood + sources), compare 2–3 places side-by-side, monitor flagged areas on a government map, and file offline-queued issue reports (2000 chars, Infrastructure/Environment/Safety/Healthcare/Transportation).",
         },
         {
           label: "Who it is for",
-          text: "Volunteers, environmental organizations, NGOs, students, and community members who want to participate in or organize sustainability efforts.",
+          text: "Residents deciding where to live/work/open a shop, visitors checking safety/weather/healthcare/emergency help, businesses scouting opportunity, and government/planning teams needing aggregated, non-personal environmental intelligence — designed for low-literacy, multilingual, mobile-first use in Nigeria.",
         },
         {
           label: "Main purpose",
-          text: "To centralize environmental action in one place — turning scattered individual efforts into visible, coordinated community impact.",
+          text: "To make Nigerian location decisions explainable and ethical: one hub where any place (e.g., Wuse 2 78/100, Ikeja 74/100, Sabon Gari 61/100) can be understood before you decide — with plain language, verified sources, and explicit 'places, never people' guarantees.",
         },
         {
           label: "Problem it addresses",
-          text: "Environmental volunteering and reporting are fragmented across chats, social media, and word of mouth, making it hard to find opportunities, coordinate action, and show impact.",
+          text: "Location information is scattered across maps, stats, rumours and search results; scores (if any) are opaque, not comparable, not localised, and often profile people. Non-English speakers and low-connectivity users are excluded, and government teams lack an aggregated, map-based view of flood, waste, air, fire, water and transport patterns.",
         },
       ],
       why: [
-        "Environmental action often starts with good intent but stalls on coordination: a clean-up is announced in a WhatsApp group, a dumping site is complained about on social media, and a tree-planting drive is known only to its organizers.",
-        "Volunteers who want to help do not know where to look. Organizations that run initiatives struggle to reach beyond their immediate network. And communities have no shared record of what has been done or what still needs attention.",
-        "The result is that effort is duplicated in some places and absent in others, and the collective impact of many small actions remains invisible.",
-        "The opportunity was to build a hub that makes environmental action discoverable and participatory — a single place where anyone can find an event to join, report an issue to address, and see the progress their community is making.",
+        "Choosing a neighbourhood in Nigeria — to live, open a shop, find a hospital, or route through flood season — forces people to stitch together maps, word-of-mouth, outdated PDFs and generic search answers that never explain why they recommend a place.",
+        "Existing tools either give raw data without interpretation, or give a single opaque rank with no source, no date, and no ethical boundary — risking proxy discrimination and criminal prediction. Hausa, Yorùbá, Igbo and Pidgin speakers, and voice-first users, are rarely served.",
+        "For government, there is no single pane showing which of the 5 monitored locations has rising fire incidents (+83% market fires in Sabon Gari, +100% in Port Harcourt), flood risk (+15% Ikeja, +12% Wuse 2), soot pollution (+21% Port Harcourt) or waste accumulation (+19% Sabon Gari) — all based on aggregated counts, not profiles.",
+        "The opportunity was to build a hub that scores every place the same 10 ways (public safety, healthcare, weather & climate, business potential, infrastructure, environment, transportation, education, economic activity, tourism), re-weights them transparently for the user's actual goal, explains every score in simple words with source + date + verified/estimated tag, speaks the user's language, works offline for reports, and visualises comparison and national patterns ethically.",
       ],
       opportunity:
-        "A single hub where environmental initiatives, events, reports, and volunteers are connected — making action discoverable, participation easy, and impact visible.",
+        "A single ethical place-intelligence hub: one 10-category scoring engine, one intent-aware assistant (re-weights — doesn't rewrite — data), rich dossiers, true side-by-side compare, and a government monitoring map — all in plain language, 5 languages + voice, with transparent, dated sources and people-never-profiled guarantees.",
       problems: [
         {
-          title: "Fragmented environmental efforts",
+          title: "Scattered, uninterpretable place data",
           description:
-            "Initiatives and volunteer opportunities were shared through disconnected channels — chats, social posts, and word of mouth — with no central place to find them.",
+            "Population, hospitals/clinics, schools, businesses, cost-of-living, rent, 4G/5G, weather, AQI, water, flood, green cover and waste live in separate registries, PDFs and map extracts with no common score or plain explanation.",
           consequence:
-            "Volunteers missed opportunities to help, and organizations could not reach the wider community beyond their own network.",
+            "People make high-stakes decisions (where to live, where to open a shop, which hospital to go to) on rumour and guesswork; comparisons between Wuse 2, Ikeja and Sabon Gari are manual and error-prone.",
         },
         {
-          title: "No structured way to report issues",
+          title: "Opaque, risky scoring and people-profiling",
           description:
-            "Local environmental issues like illegal dumping or pollution were reported informally without location, photos, or a follow-up workflow.",
+            "Most scoring is a black box, uses proxies like demographics or social media, and can be used to label or target individuals.",
           consequence:
-            "Reports were easy to ignore and hard to act on, with no record of whether an issue was addressed.",
+            "Loss of trust, ethical harm, and decisions that discriminate by appearance/ethnicity/neighbourhood — explicitly forbidden by the project's own ethics but common in the market.",
         },
         {
-          title: "Invisible collective impact",
+          title: "Language, literacy and access exclusion",
           description:
-            "Community contributions — clean-ups completed, trees planted, waste collected — were not tracked or showcased in one place.",
+            "English-only, jargon-heavy, desktop-only tools with no voice, no read-aloud and no offline handling ignore Hausa/Yorùbá/Igbo/Pidgin speakers, low-literacy users and low-connectivity field reporting.",
           consequence:
-            "Motivation faded because volunteers could not see the difference their efforts made together.",
+            "The people most affected by flood, waste and healthcare gaps are the least able to use the tool that could help them.",
         },
         {
-          title: "Poor coordination between volunteers and organizers",
+          title: "No comparable or operational view",
           description:
-            "Organizers and volunteers had no shared workspace for events, sign-ups, and updates.",
+            "No side-by-side compare with share/CSV/print, and no aggregated government view of flagged areas, incident trends (last 6 months, Q2 vs Q1) and breakdowns by type across 5 locations.",
           consequence:
-            "Events were under-attended or over-subscribed, and communication depended on scattered messages.",
+            "Businesses and planners cannot justify a choice or prioritize interventions (e.g., drainage on Aminu Kano corridor, waste frequency in Sabon Gari, signal timing in Wuse 2).",
         },
       ],
       solutions: [
         {
-          problem: "Fragmented environmental efforts",
+          problem: "Scattered, uninterpretable place data",
           solution:
-            "A community feed and event directory centralize initiatives and campaigns, with search and filtering so anyone can find relevant opportunities nearby.",
+            "Unified 10-category model (0–100 each, with Strong 72–100 / Workable 55–71 / At-risk 0–54 bands) + Overall weighted score; every category page cites underlying data (e.g., '24 facilities including 3 general hospitals', '≈9,400 businesses, 92% 4G/5G, ₦2.8M rent, 18% green cover') with source + date + status (verified/estimated/community). Location dossier bundles map, plain summary ('What this means / What you can do'), key facts, category why-explanations, and live environment block (Weather/Air/Water/Flood).",
           result:
-            "Volunteers discover events and organizations beyond their immediate circle, and organizers reach a broader audience.",
+            "A Wuse 2 dossier (78/100) reads in seconds on mobile: 'Good overall — strong business/healthcare/infrastructure, environment held back by congestion & drainage flash-points' with a drill-down to 10 explained scores — all figures flagged as simulated sample data in demo.",
         },
         {
-          problem: "No structured way to report issues",
+          problem: "Opaque, risky scoring and people-profiling",
           solution:
-            "A guided reporting flow captures issue type, description, GPS location, and photo evidence, creating a structured record that organizations can triage.",
+            "Personal Decision Assistant keeps underlying data fixed and only re-weights the 10 scores by intent; methodology page documents weighting, bands and ethical rules (places never people, no criminal prediction, no proxy discrimination — appearance/ethnicity/demographics never inputs, aggregated verified incident counts only, AI explains itself with plain-language citations).",
           result:
-            "Reports become actionable data instead of informal complaints, with a clear path from report to response.",
+            "Same location scores differently for 'open a small shop' vs 'find malaria treatment' — transparently, without profiling — auditable via /about Methodology & ethics.",
         },
         {
-          problem: "Invisible collective impact",
+          problem: "Language, literacy and access exclusion",
           solution:
-            "Contribution tracking and community dashboards surface participation, events completed, and environmental outcomes in one view.",
+            "5-language switcher (English/Hausa/Yorùbá/Igbo/Pidgin) + voice input ('Tap to speak' 56px mic button) + read-aloud, Easy Mode, simple-words cards, 8 intent tiles (Check a Place, Healthcare, Route, Business, Live, Environment, Emergency, Ask), bottom nav for mobile, offline-queued reporting (max 2000 chars, Category + Description) and offline-aware UI.",
           result:
-            "Volunteers see the tangible results of their collective action, which sustains engagement.",
+            "A market trader can speak in Pidgin, hear the answer read aloud, and file a flood/waste report offline that sends when back online — no technical terms required.",
         },
         {
-          problem: "Poor coordination between volunteers and organizers",
+          problem: "No comparable or operational view",
           solution:
-            "Event management with participation handling gives organizers a single place to publish events and volunteers a simple way to join and stay updated.",
+            "Compare up to 3 locations (e.g., Wuse 2 vs Ikeja) with overlaid category profile, score-by-category table (best highlighted), key-facts table, share link, Export CSV and Print/PDF; Government Intelligence Dashboard with OpenStreetMap pins coloured by severity, 5 monitored locations / 11 flagged / 4 critical / 2,376 reports, flagged-areas list, 6-month trend chart and Q2-vs-Q1 breakdown (theft/burglary/traffic/fire/robbery).",
           result:
-            "Events are coordinated through one system rather than scattered messages, improving attendance and follow-through.",
+            "A founder can compare Wuse 2 (Business 88, Infrastructure 82) vs Ikeja (Business 90, Economy 92) in one view and share it; a planner can spot '+83% market fires Sabon Gari' and prioritise wiring inspections before peak rains.",
         },
       ],
       howWeSolvedIt: [
-        "EnvironmentHub is built as a modern web application with a React and TypeScript frontend styled with Tailwind CSS and powered by Vite for fast development and builds.",
-        "The frontend is organized around community and action: a discovery feed for initiatives, event detail and participation flows, a reporting workspace for environmental issues, and dashboards for organizations and volunteers to track activity.",
-        "The interface was designed mobile-first, recognizing that volunteers and community members will often access the platform from their phones in the field. Screens are lightweight, task-focused, and optimized for quick reporting and event discovery.",
-        "Deployment is on Vercel, giving the application fast edge delivery, automatic previews, and independent scaling of the frontend. The live deployment is available at https://enviromenthub-tvuv.vercel.app/.",
+        "Visited the live deployment at https://enviromenthub-tvuv.vercel.app/ and mapped the real product: TerraLensHub — header nav Home/Ask/Compare/Government/How it works/Saved, hero 'What do you want to know?' with search + Scan + voice, 8 quick-action cards, 'Try an example place' grid (Wuse 2 78, Sabon Gari 61, Ikeja 74, Enugu 69, Port Harcourt 66), location dossiers, discover/ask flow, compare, government dashboard and about/methodology.",
+        "Modelled the 10 scored categories as the core domain (public safety, healthcare, weather & climate, business, infrastructure, environment, transportation, education, economic activity, tourism) with per-category 0–100, banding, plain summary, and source+date+status. Overall score is weighted across 10; the Personal Decision Assistant re-weights — never rewrites — those scores by goal, keeping data fixed and explanation auditable.",
+        "Built the frontend as a modern React + TypeScript + Vite + Tailwind app with TanStack Router/Start (seen in streaming SSR barrier + preloads), OpenStreetMap embeds (pan/zoom, coordinates like 9.076°N 7.469°E), Web Speech API voice input, and Radix/shadcn patterns; deployed on Vercel with edge delivery, modulepreload chunks (locations, voice-input, score-bar, etc.) and fast previews — exactly as the live HTML shows.",
+        "Implemented the IA for trust and speed: sticky header + mobile bottom nav, language selector + Easy Mode, How Hub Helps You explainer (Simple words / Your language / Verified sources), demo disclaimer ('All figures simulated sample data'), transparent methodology page, saved/favorites + alerts, and a reporting form that queues locally when offline — the previous 'volunteer clean-up' narrative in the portfolio was incorrect and is now replaced by this faithful description.",
       ],
       architecture: [
         {
-          title: "Community-centric architecture",
+          title: "Intent-reweighted scoring engine (10 categories)",
           description:
-            "Initiatives, events, reports, and users are modeled as connected entities, so discovery, participation, and impact all read from the same community graph.",
+            "Single source of truth: 10 × 0–100 scores + Overall weighted score. The assistant layer applies goal-specific weights (business leans on economy/infra/transport; health leans on healthcare/environment/climate) without mutating raw data. Bands Strong/Workable/At-risk and plain-language 'What it means / What you can do' are derived, not hard-coded.",
         },
         {
-          title: "Event-driven participation",
+          title: "Ethical-by-design, explainable reporting",
           description:
-            "Events are first-class records with participation state, enabling organizers to manage sign-ups and volunteers to track their involvement.",
+            "Every score ships with a 'why' citing aggregated data only (e.g., 'Theft -10%, traffic +9%, 24 facilities'), source family (NBS, emergency feed, OSM extract, met service, EPA, telecom registry) and date + verified/estimated/community badge. Rules: places never people, no criminal prediction, no proxy discrimination, no social-media targeting.",
         },
         {
-          title: "Structured environmental reporting",
+          title: "Location-centric content graph",
           description:
-            "Reports carry typed fields — category, location, photos, and status — so an informal observation becomes a trackable community issue.",
+            "Locations are first-class entities (Wuse 2, Ikeja, Sabon Gari, Enugu, Port Harcourt) with relations to category scores, key facts (population, hospitals, schools, businesses, cost, rent, coverage), environment hazards, insights (/insight/:slug/:category), compare selections, and government flags — enabling discover, dossier, compare and map from one graph.",
         },
         {
-          title: "Mobile-first frontend",
+          title: "Accessible, voice-first, offline-tolerant frontend",
           description:
-            "A React, TypeScript, and Tailwind CSS application built with Vite, designed for phones and field use, deployed on Vercel.",
+            "React 19 + TypeScript + TanStack Router/Start (SSR streaming) + Tailwind + Vite, OpenStreetMap, Web Speech API, local queue for reports, 5-language i18n with read-aloud, responsive header + bottom nav, and Vercel edge deployment with chunked preloads — designed for phones, weak connectivity and field use.",
         },
       ],
       techStack: [
-        { label: "Frontend", items: ["React", "TypeScript", "Vite"] },
-        { label: "Styling", items: ["Tailwind CSS"] },
-        { label: "Infrastructure", items: ["Vercel"] },
+        { label: "Frontend", items: ["React 19", "TypeScript", "Vite", "TanStack Router / TanStack Start (SSR streaming)"] },
+        { label: "Styling & UI", items: ["Tailwind CSS v4", "Radix UI / shadcn", "Lucide Icons", "Framer Motion"] },
+        { label: "Maps & Voice", items: ["OpenStreetMap embeds", "Web Speech API (voice input + read-aloud)"] },
+        { label: "Infrastructure", items: ["Vercel (edge, previews, modulepreload chunks)", "PWA manifest"] },
+        { label: "Data (demo, flagged as simulated)", items: ["NBS population/economy/cost", "State emergency feeds (flood/fire)", "OSM POI extracts (hospitals/schools/roads)", "Met services (weather/climate)", "EPA (air/water/waste)", "Telecom coverage registry"] },
       ],
       challenges: [
         {
-          title: "Making environmental action discoverable",
+          title: "Making 10 scores comparable and explainable",
           description:
-            "Initiatives and events needed to be findable beyond an organizer's immediate network, without creating a noisy, unfocused feed.",
+            "10 numbers alone overwhelm users; without plain language, banding and sourced 'why', the Overall score feels like a black box and can't be compared across Wuse 2 vs Ikeja vs Port Harcourt.",
         },
         {
-          title: "Designing a useful reporting flow",
+          title: "Intent without profiling",
           description:
-            "Reporting had to be quick enough to use in the field while still capturing enough structure — type, location, evidence — to be actionable.",
+            "Re-weighting for 'open a shop' vs 'find malaria treatment' must be transparent and must not let demographics or social data leak in as proxies.",
         },
         {
-          title: "Balancing community and organization needs",
+          title: "Five languages + voice + low connectivity",
           description:
-            "Volunteers and organizations use the platform differently, but both need to see the same underlying community activity.",
+            "Hausa/Yorùbá/Igbo/Pidgin plus voice/read-aloud and offline reporting had to work on phones with patchy data, without bloating the bundle.",
         },
         {
-          title: "Mobile-first field use",
+          title: "From dossier to decision: compare & government ops",
           description:
-            "The platform had to remain fast and usable on phones with weak connectivity, where much of the reporting and participation happens.",
+            "Users need to justify a choice (share/CSV/print) and ops teams need a national map of flagged versus stable areas — both from the same dataset, aggregated-only, with trend and breakdown clarity.",
         },
       ],
       overcoming: [
         {
-          challenge: "Discoverability",
-          how: "Discovery was built around a filtered feed and event directory rather than a generic timeline, so users can narrow by location, category, and recency to find what matters to them.",
+          challenge: "10 scores explainability",
+          how: "Banded Overall (72+ Strong / 55-71 Workable / 0-54 At risk), per-category plain summaries ('Most services okay' / 'Mixed — check details' / 'Be careful — needs attention'), why-cards citing counts & trends, and source+date badges; Compare overlays profiles and highlights best-per-row so the eye catches the trade-off instantly.",
         },
         {
-          challenge: "Reporting flow",
-          how: "The flow was kept to essential fields — what, where, and evidence — with GPS and photo capture prioritized, so a report can be completed in under a minute in the field.",
+          challenge: "Intent without profiling",
+          how: "Kept raw scores immutable; the Personal Decision Assistant only changes category weights per goal and documents it on /about (same data, different weights). Enforced ethical guardrails in copy and access: aggregated incident counts only, demographics/social never inputs, and an AI-explains-itself requirement for every score.",
         },
         {
-          challenge: "Volunteers and organizations together",
-          how: "The data model treats initiatives and events as shared records, with volunteers as participants and organizations as publishers, so both perspectives are views over the same data.",
+          challenge: "Languages / voice / offline",
+          how: "Lightweight i18n switcher + Web Speech API with 56px tap target, read-aloud toggle, Easy Mode for simple-words UI, and a report queue that stores Infrastructure/Environment/Safety/Healthcare/Transportation + Description locally and flushes when online — keeping the field flow to Category + Description (10–2000 chars).",
         },
         {
-          challenge: "Mobile field use",
-          how: "Screens were kept lean with minimal assets, responsive layouts, and task-focused flows, ensuring the reporting and event-joining paths work well on small screens and slow networks.",
+          challenge: "Compare & government ops",
+          how: "Compare holds up to 3 locations in state, derives overlay + tables + key facts from the same location records, and offers Copy link / Export CSV / Print-PDF; Government dashboard colours OSM pins by most-severe flag, lists 11 flagged areas with priority (high/medium) and next action, and charts 6-month aggregated incident trends + Q2-vs-Q1 breakdown — all clearly marked as place patterns, never people.",
         },
       ],
       results: [
-        "A single hub where community members can discover initiatives, join environmental events, and report local issues through one consistent interface.",
-        "Structured, location-aware environmental reports that give organizations actionable data instead of informal complaints.",
-        "Improved coordination for event organizers, with participation managed in one place rather than across chat groups.",
-        "Visible community impact through contribution tracking, helping sustain volunteer motivation and organizational credibility.",
+        "Live, faithful place-intelligence hub at https://enviromenthub-tvuv.vercel.app/ with 5 example Nigerian locations (78 Wuse 2 down to 61 Sabon Gari) each fully explainable across 10 categories, with map, key facts and dated sources.",
+        "Goal-aware discovery: Ask Hub understands natural language or voice ('Where can I find a hospital?', 'Is this place good for my family?') and re-weights the same scores transparently, cited on the methodology page.",
+        "True comparability and operability: side-by-side compare with share/CSV/print and a government map that surfaces 11 flagged areas, 4 critical alerts and Q2-vs-Q1 incident deltas for planning — all aggregated-only.",
+        "Inclusive access: 5 languages + voice + read-aloud + offline-queued reporting + mobile bottom nav, with every figure explicitly marked 'simulated sample data — do not use for real decisions' to preserve trust in demo mode.",
       ],
       lessons: [
-        "Discoverability is the core feature for a community platform — if people cannot find the action, they cannot join it.",
-        "A short, structured reporting flow is worth more than a long, detailed one that no one completes in the field.",
-        "Modeling events and reports as shared records keeps volunteer and organizer views consistent without duplicating data.",
-        "Mobile-first design is essential for environmental platforms where much of the use happens on the go.",
-        "Deploying on Vercel keeps the frontend fast and iteration quick, with previews and edge delivery built in.",
+        "One scoring model + re-weighting beats N separate models: keep raw 10 scores fixed, vary only weights by intent — it preserves auditability and lets you prove 'places, never people'.",
+        "Explainability is the feature: band + plain sentence + source/date + status (verified/estimated/community) matters more than the number itself; without it, even a 78/100 is noise.",
+        "Voice + language + offline are not nice-to-haves for place tools in Nigeria — they determine whether the people most at risk can actually file a flood/waste report or choose a clinic.",
+        "Map + compare + flagged list are the same data at three zoom levels (dossier → comparison → national ops); modelling locations as the central entity keeps them consistent without duplication.",
+        "Marking demo data as simulated — everywhere (cards, tables, footer, about) — is what lets you ship realistic UX without misleading users or planners.",
       ],
     },
   },
