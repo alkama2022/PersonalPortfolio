@@ -1104,9 +1104,8 @@ export const projects: Project[] = [
       "Organization and community dashboards",
       "Responsive, mobile-first experience",
     ],
-    image: "/images/project-enviromenthub.jpg",
-    // Live disabled: deployment at https://enviromenthub-git-main-mevs-me.vercel.app/ is currently Vercel-password-protected (302 → /sso-api → Login). Re-enable after disabling Vercel Authentication in project Settings → Deployment Protection.
-    live: "",
+    image: "/images/project-enviromenthub.png",
+    live: "https://enviromenthub-tvuv.vercel.app/",
     category: "Sustainability",
     featured: true,
     caseStudy: {
@@ -1206,7 +1205,7 @@ export const projects: Project[] = [
         "EnvironmentHub is built as a modern web application with a React and TypeScript frontend styled with Tailwind CSS and powered by Vite for fast development and builds.",
         "The frontend is organized around community and action: a discovery feed for initiatives, event detail and participation flows, a reporting workspace for environmental issues, and dashboards for organizations and volunteers to track activity.",
         "The interface was designed mobile-first, recognizing that volunteers and community members will often access the platform from their phones in the field. Screens are lightweight, task-focused, and optimized for quick reporting and event discovery.",
-        "Deployment is on Vercel, giving the application fast edge delivery, automatic previews, and independent scaling of the frontend. The live deployment is available at https://enviromenthub-git-main-mevs-me.vercel.app/.",
+        "Deployment is on Vercel, giving the application fast edge delivery, automatic previews, and independent scaling of the frontend. The live deployment is available at https://enviromenthub-tvuv.vercel.app/.",
       ],
       architecture: [
         {
