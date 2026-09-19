@@ -904,7 +904,7 @@ export const projects: Project[] = [
       "A responsive workspace for desktop, laptop, tablet, and mobile",
     ],
     image: "/images/project-unihub.jpg",
-    live: "https://unihub-git-main-mevs-me.vercel.app/",
+    live: "https://unihub-git-main-mevs-me.vercel.app",
     category: "EdTech",
     featured: true,
     caseStudy: {
@@ -1105,7 +1105,8 @@ export const projects: Project[] = [
       "Responsive, mobile-first experience",
     ],
     image: "/images/project-enviromenthub.jpg",
-    live: "https://enviromenthub-git-main-mevs-me.vercel.app/",
+    // Live disabled: deployment at https://enviromenthub-git-main-mevs-me.vercel.app/ is currently Vercel-password-protected (302 → /sso-api → Login). Re-enable after disabling Vercel Authentication in project Settings → Deployment Protection.
+    live: "",
     category: "Sustainability",
     featured: true,
     caseStudy: {
