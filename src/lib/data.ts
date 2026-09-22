@@ -1293,6 +1293,208 @@ export const projects: Project[] = [
       ],
     },
   },
+  {
+    id: "collectnaija",
+    title: "CollectNaija",
+    description:
+      "The receivables workspace for ambitious Nigerian businesses — track customers, invoices, outstanding balances and payments in one calm workspace while automating respectful payment reminders. Live at debt-collector-theta.vercel.app.",
+    technologies: ["React", "TypeScript", "Vite", "Tailwind CSS", "REST API", "Paystack", "Vercel"],
+    features: [
+      "Customer management with profiles, payment history, preferred language (en/ha/yo/ig/pcm) and full conversation timeline",
+      "Invoicing with server-calculated balances, items, discounts, tax and Paystack-verified payments — never trusted from the frontend",
+      "Automated gentle reminders via WhatsApp/SMS with comms rules, scheduling, and opt-out handling",
+      "Dashboard with total outstanding, due today, overdue, collected this month and 7-day cashflow + search across customers, invoices and payments",
+      "Role-based access (Owner, Admin, Collection Manager) with org-isolated, auditable actions and audit log + CSV/PDF reports",
+      "NGN by default (Africa/Lagos timezone) with USD/EUR/GBP support, JWT auth, and clear metered AI & messaging usage",
+      "Pricing that scales — Free (50 customers) to Enterprise (10,000+), with 14-day trial, coupon support (WELCOME50) and Vercel edge delivery",
+    ],
+    image: "/images/project-collectnaija.jpg",
+    live: "https://debt-collector-theta.vercel.app/",
+    category: "FinTech",
+    featured: true,
+    caseStudy: {
+      summary:
+        "CollectNaija (live at debt-collector-theta.vercel.app — branded 'Collect what you're owed. Stay in control.') is a receivables workspace for Nigerian businesses that replaces spreadsheets and manual chasing with a single calm workspace for customers, invoices, payments, and automated, respectful reminders — where every amount is calculated on the server and every payment is verified by the provider.",
+      overview: [
+        {
+          label: "What it is",
+          text: "CollectNaija — a receivables workspace (live at https://debt-collector-theta.vercel.app/) that gives ambitious businesses one place to add customers, issue invoices, track outstanding vs overdue balances, record payments, and automate gentle follow-ups.",
+        },
+        {
+          label: "What it does",
+          text: "Lets a team search customers/invoices/payments, see in seconds who owes what and when they promised to pay, send WhatsApp/SMS reminders on schedule (with language preference per customer), record Paystack-verified payments, issue receipts, and watch cashflow update live — with dashboard, reports, audit log and CSV/PDF export.",
+        },
+        {
+          label: "Who it is for",
+          text: "Nigerian SMEs and growing businesses (and their Owner/Admin/Collection Manager team) that extend credit and need to get paid on time — Nigeria-first, built to scale globally, with NGN/Africa/Lagos defaults and USD/EUR/GBP support.",
+        },
+        {
+          label: "Main purpose",
+          text: "To stop chasing payments: give the team a single workspace where every balance is server-calculated, every payment comes from the provider, and next steps are obvious — so cash comes in faster with respect for every customer.",
+        },
+        {
+          label: "Problem it addresses",
+          text: "Receivables live in chats, books and memory; balances are recomputed in the browser, payments are marked 'successful' from a button, and reminders are manual — so teams lose track, balances drift, and customers get chased inconsistently.",
+        },
+      ],
+      why: [
+        "Getting paid is the part of running a business that feels most like chasing. An invoice goes out, a promise is made, and then the work becomes reminders — calls, messages, revisits — with no shared view of who owes what or what to do next.",
+        "For many Nigerian businesses the tools at hand are a customer book, a spreadsheet invoice, and a phone. Balances are calculated wherever they are displayed, payments are confirmed by the person who tapped the button, and the history of a customer lives in chat scroll.",
+        "When the team grows — Owner, Admin, Collection Manager — the problem multiplies. One person knows the promise date, another holds the receipt, and nobody sees the trend: how much is outstanding vs overdue, or whether collections this week are on track.",
+        "The opportunity was to build a workspace that treats receivables as a first-class domain: customers with profiles and language preference, invoices with server-truth balances, provider-verified payments, and scheduled, respectful reminders — all org-isolated, auditable, and explainable before anyone asks.",
+      ],
+      opportunity:
+        "A single receivables workspace where every balance is calculated on the server, every payment is verified by Paystack (not the frontend), and every reminder respects the customer's preferred language — with Owner/Admin/Collection Manager roles and an audit trail accountants will trust.",
+      problems: [
+        {
+          title: "Balances that drift",
+          description:
+            "When totals and outstanding balances are computed in the browser, two screens can show two numbers and nobody knows which is true.",
+          consequence:
+            "Teams lose trust in the system and fall back to manual books — the tool becomes shelfware.",
+        },
+        {
+          title: "Payments trusted from the button",
+          description:
+            "Marking a payment 'successful' because the frontend said so invites fraud and reconciliation errors.",
+          consequence:
+            "Accounts look paid when money never moved, or disputes take days to untangle.",
+        },
+        {
+          title: "Manual, inconsistent reminders",
+          description:
+            "Follow-ups depend on who remembers, in what language, on which channel — WhatsApp, SMS, or call — with no schedule or audit.",
+          consequence:
+            "Customers are chased unevenly, some over-contacted and others forgotten, and no one can prove what was sent when.",
+        },
+        {
+          title: "No shared receivables view",
+          description:
+            "Outstanding vs overdue, collected this month, due today, and 7-day cashflow live in separate notes or heads, not in one dashboard with search, reports and export.",
+          consequence:
+            "The business cannot answer 'how much are we owed and what is next?' without a meeting and a spreadsheet.",
+        },
+      ],
+      solutions: [
+        {
+          problem: "Balances that drift",
+          solution:
+            "Every balance — total invoiced, amount paid, balance, outstanding, overdue — is calculated on the server and exposed via /invoices and /customers; the frontend renders what the server says, never what it computes.",
+          result:
+            "All portals show one truth, and the footer line holds: 'Every amount is calculated on the server.'",
+        },
+        {
+          problem: "Payments trusted from the button",
+          solution:
+            "Payments run through Paystack; the backend verifies via provider before a payment is stored as successful, with idempotency keys and provider_ref — 'No payment is marked successful from the frontend alone.'",
+          result:
+            "Receipts, collections and cashflow reflect provider truth, not UI optimism.",
+        },
+        {
+          problem: "Manual, inconsistent reminders",
+          solution:
+            "Comms rules engine (/comms/rules, /comms/events) schedules WhatsApp/SMS per customer with status (scheduled/sent), channel, scheduled_for/sent_at, language-aware templates (en/ha/yo/ig/pcm), and opt-out archiving; rules can be created, patched, deleted and run-all from the UI.",
+          result:
+            "A '12 days overdue • WhatsApp reminder ready' customer gets the right message in the right language at the right time — and it is logged.",
+        },
+        {
+          problem: "No shared receivables view",
+          solution:
+            "Dashboard aggregates totalOutstanding, dueToday, overdue, collectedThisMonth, invoiceCount, customerCount, paymentCount and a 7-day cashflow series; plus full customer/invoice/payment search, reports (outstanding vs overdue, collections by week), audit log (/audit/logs), and CSV/PDF export under RBAC (Owner/Admin/Collection Manager, org-isolated).",
+          result:
+            "The team opens one screen and knows next steps without asking anyone.",
+        },
+      ],
+      howWeSolvedIt: [
+        "Visited the live deployment at https://debt-collector-theta.vercel.app/ and mapped the real product: header 'CollectNaija • The receivables workspace for ambitious businesses', hero 'Stop chasing payments. Start collecting with confidence.', metrics 'Collected this month ₦1.2M • 18 payments', cards for customers/invoices/payments/reminders/reports/roles, pricing with 5 plans, and footer 'Helping Nigerian businesses get paid on time.'",
+        "Modelled receivables as the domain: customers (customer_code, name, phone, outstanding, overdue, preferred_language, language_history), invoices (invoice_number, customer, items with qty/unit_price_minor, subtotal/discount/tax/total/balance, currency, status, due_date), payments (invoice, amount, provider, provider_ref, status, created_at) and comms events (channel, status, sent_at, scheduled_for) — all fetched via a typed REST client with JWT (cn_token/cn_refresh) and X-Org-Language headers.",
+        "Built the frontend as a React + TypeScript + Vite + Tailwind app (vendor + ui chunks, modulepreload, Vercel edge). Implemented auth (login/signup with JWT decode for org), customers (list/search/bulk import/CRUD), invoices (create with idempotency key, detail), payments (create verified), reminders (rules CRUD + run), reports/charts, settings/languages (dashboard vs customer language, 5 supported codes, auto_detect/use_fallback), billing/pricing with Paystack authorization_url flow, and audit logs — matching the JS bundles seen live (Landing, Login, Signup, Dashboard, Customers, Invoices, Payments, Reminders, Reports, Pricing, Billing, etc.).",
+        "Implemented the pricing IA for trust and conversion: 5 plans (free/starter/business/professional/enterprise) sorted by slug, each showing ₦ price/month, 4 limits and 5 feature slugs, 'Most chosen' on Business, trial banner '14-day trial on Starter & Business', coupon input (WELCOME50 → 50% off), and a footer promise that server-calculated balances, audit log, timezone and currency are included on every plan while AI & messaging is metered and shown before charge.",
+      ],
+      architecture: [
+        {
+          title: "Server-truth receivables domain",
+          description:
+            "Customers, invoices and payments are first-class entities with balances derived server-side; search, dashboard aggregates and reports all read the same API, so 'outstanding vs overdue' is a query result, not a UI calculation.",
+        },
+        {
+          title: "Provider-verified payments",
+          description:
+            "Paystack is the source of truth: POST /payments with idempotency key, provider=manual/paystack, and provider_ref; frontend never sets status to successful alone — verification is backend-only, with receipts and cashflow downstream.",
+        },
+        {
+          title: "Rules-based comms engine",
+          description:
+            "Declarative comms rules (/comms/rules CRUD + /run, /run-all) drive comms events (/comms/events by invoice/customer/channel), separating policy ('when to remind') from execution ('what was sent when') and respecting opt-out and language preference.",
+        },
+        {
+          title: "Org-isolated, auditable workspace with i18n",
+          description:
+            "JWT auth (cn_token/cn_refresh, X-Org-Language, Accept-Language), per-org isolation (cn_org_id from /organizations), role checks (Owner/Admin/Collection Manager), audit logs, and 5-language support (en/ha/yo/ig/pcm + pcm) with dashboard vs customer language keys and auto-detect/fallback modes — deployed on Vercel with edge chunks and modulepreload.",
+        },
+      ],
+      techStack: [
+        { label: "Frontend", items: ["React", "TypeScript", "Vite"] },
+        { label: "Styling & UI", items: ["Tailwind CSS", "Radix/shadcn patterns", "Lucide Icons"] },
+        { label: "Routing & State", items: ["React Router (vendor chunk)", "REST client with JWT (cn_token/cn_refresh)"] },
+        { label: "Payments & Comms", items: ["Paystack (provider-verified payments, idempotency)", "WhatsApp/SMS comms rules & events"] },
+        { label: "Infrastructure", items: ["Vercel (edge, previews, modulepreload)", "REST API (organizations/customers/invoices/payments/comms/audit/languages)", "Africa/Lagos • NGN default"] },
+      ],
+      challenges: [
+        {
+          title: "Keeping balances honest",
+          description:
+            "Two screens recomputing balances locally will diverge; the dashboard, invoice detail and customer overdue must agree without client-side arithmetic.",
+        },
+        {
+          title: "Verifying payments without trusting the button",
+          description:
+            "A fast UI still needs to wait for the provider; marking success from the click feels instant but breaks reconciliation.",
+        },
+        {
+          title: "Respectful, language-aware reminders at scale",
+          description:
+            "From 50 to 10,000 customers, reminders must schedule correctly, respect opt-out, and speak the customer's preferred language (Hausa/Yorùbá/Igbo/Pidgin/English) — not the operator's.",
+        },
+        {
+          title: "Pricing that explains itself",
+          description:
+            "Five plans with limits, features, trial, coupon and metered AI/messaging need to be comparable without a sales call, while reassuring that core receivables truth is included on every plan.",
+        },
+      ],
+      overcoming: [
+        {
+          challenge: "Honest balances",
+          how: "Made the API the calculator: totals, paid and balance come as numbers from the server (balance/total as Number(...)), and dashboard aggregates (totalOutstanding, dueToday, overdue, collectedThisMonth) reduce over the same invoice/payment results the tables show — so equality is structural, not coincidental.",
+        },
+        {
+          challenge: "Verified payments",
+          how: "POST /payments carries X-Idempotency-Key and provider info; the UI shows 'Each payment is verified by the provider — status comes from the backend, never the button' and only reflects status after the server confirms it, with provider_ref as the receipt anchor.",
+        },
+        {
+          challenge: "Respectful reminders at scale",
+          how: "Modelled comms as rules → events (not ad-hoc sends): rules store channel/schedule/policy, events store per-invoice/customer send with status and timestamps; customer preferred_language + language_history travel with the customer, and opt_out archives them — so Hausa or Pidgin templates run automatically and history proves what was sent.",
+        },
+        {
+          challenge: "Explainable pricing",
+          how: "Sorted plans by slug (free→starter→business→professional→enterprise), rendered price as ₦ with /month, limits as 'Unlimited/Not included' or counts, features as slug→human labels, highlighted Business as 'Most chosen', and added the promise footer 'All plans include: Invoices, payments, receipts, audit log, Africa/Lagos & NGN' plus 'AI & messaging is metered and shown before you pay' — trial and coupon (WELCOME50) are inline, not hidden.",
+        },
+      ],
+      results: [
+        "Live receivables workspace at https://debt-collector-theta.vercel.app/ with hero, dashboard, customers, invoices, payments, reminders, reports, settings, languages, pricing and billing — all wired to a JWT + org-isolated REST API with server-calculated balances.",
+        "Provider-verified payment flow via Paystack with idempotency and receipting, so collections and 7-day cashflow reflect money moved, not buttons tapped.",
+        "Rules-based, language-aware reminders (5 languages + auto_detect/use_fallback) with scheduling, WhatsApp/SMS channels, opt-out and full event history — replacing manual chasing with an auditable timeline per customer.",
+        "Org-isolated RBAC (Owner/Admin/Collection Manager), search across customers/invoices/payments, dashboard aggregates, reports with CSV/PDF and audit log, plus a pricing page that scales from 50 to 10,000 customers with trial and coupon — Nigeria-first with global currency readiness.",
+      ],
+      lessons: [
+        "Server-truth is the product: moving balance arithmetic to the API removes the most expensive bug in receivables — two different numbers for the same invoice.",
+        "Never trust the button for money: provider verification plus idempotency turns 'Payment received' from a UI event into an accounting fact.",
+        "Reminders are a rules engine, not a send button: separating policy from events keeps follow-ups consistent, auditable and respectful — especially when language preference matters.",
+        "Language is a domain field, not a UI toggle: storing preferred_language and history on the customer, plus dashboard vs customer language keys, lets Hausa/Pidgin customers hear the right message without operator effort.",
+        "Pricing should be as explainable as the dashboard: showing limits, features, trial and metered usage inline — with core guarantees ('Every amount is calculated on the server') on every plan — builds trust faster than a sales call.",
+      ],
+    },
+  },
 ];
 
 export const allTechnologies = Array.from(new Set(projects.flatMap((p) => p.technologies))).sort();
